@@ -1,11 +1,17 @@
-# Welcome to your Jupyter Book
+# Selamat Datang di Catatan Saya
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Catatan ini disusun selama menempuh mata kuliah **Proyek Sains Data** pada semester lima di **Universitas Trunodjoyo Madura**. Isinya mencakup rangkuman materi, proses pengerjaan tugas, serta dokumentasi proyek yang dikerjakan sepanjang perkuliahan.
 
-Check out the content pages bundled with this sample book to see more.
+## Identitas
+
+| Keterangan | Detail |
+|---|---|
+| Nama | Rian Renaldy |
+| NIM | 240411100053 |
+| Kelas | Proyek Sains Data (B) |
+| Dosen Pengampu | Mula'ab, S.Si., M.Kom |
+
+Silakan telusuri halaman-halaman pada daftar isi untuk melihat catatan dan pembahasan lebih lanjut.
 
 ```{tableofcontents}
 ```
