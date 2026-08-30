@@ -1,0 +1,2362 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan &#8212; Proyek Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Crawling & Analisis Data Polutan Udara di Kabupaten Pamekasan';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Selamat Datang di Catatan Saya" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Proyek Sains Data - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Proyek Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Selamat Datang di Catatan Saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCrawling & Analisis Data Polutan Udara di Kabupaten Pamekasan.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Crawling & Analisis Data Polutan Udara di Kabupaten Pamekasan.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Crawling & Analisis Data Polutan Udara di Kabupaten Pamekasan</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-wilayah-analisa">Gambaran Wilayah Analisa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1 Tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.2 Manfaat Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.3 Dugaan Sumber Tiap Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.4 Deskripsi Umum Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penetapan-area-analisa-aoi-melalui-geojson-io">2. Penetapan Area Analisa (AOI) Melalui GeoJSON.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-autentikasi">3.1 Instalasi &amp; Autentikasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengunduh-enam-parameter-polutan">3.2 Mengunduh Enam Parameter Polutan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">4. Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-berkas-netcdf-menyimpan-sebagai-csv">4.1 Membaca Berkas NetCDF &amp; Menyimpan sebagai CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-struktur-isi-data">4.2 Eksplorasi Struktur &amp; Isi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-tiap-fitur">4.3 Penjelasan Tiap Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-missing-value">4.4 Pengecekan Missing Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5. Visualisasi Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="crawling-analisis-data-polutan-udara-di-kabupaten-pamekasan">
+<h1>Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan<a class="headerlink" href="#crawling-analisis-data-polutan-udara-di-kabupaten-pamekasan" title="Link to this heading">#</a></h1>
+<!-- # Pemantauan Kualitas Udara Kabupaten Pamekasan Berbasis Data Satelit Sentinel-5P -->
+<p>Nama : Rian Renaldy</p>
+<p>NIM : 240411100053</p>
+<p>Mata Kuliah : Pengantar Sains Data (PSD)</p>
+<section id="gambaran-wilayah-analisa">
+<h2>Gambaran Wilayah Analisa<a class="headerlink" href="#gambaran-wilayah-analisa" title="Link to this heading">#</a></h2>
+<p>Kabupaten Pamekasan terletak di bagian tengah Pulau Madura, Provinsi Jawa Timur. Berbeda dari kawasan industri besar, karakter utama wilayah ini didominasi oleh <strong>sektor agraris</strong> (padi, jagung, tembakau), <strong>peternakan sapi</strong> (Pamekasan dikenal sebagai salah satu sentra karapan sapi di Madura), <strong>produksi garam rakyat</strong> di kawasan pesisir, serta aktivitas <strong>perikanan tangkap</strong> dengan kapal-kapal nelayan bermesin diesel. Selain itu, jalur distribusi barang lintas Madura (menghubungkan Bangkalan – Sampang – Pamekasan – Sumenep) turut menyumbang emisi kendaraan bermotor. Kombinasi aktivitas pertanian, peternakan, perikanan, dan transportasi darat ini berpotensi memengaruhi konsentrasi berbagai gas pencemar udara, meliputi Karbon Monoksida (CO), Nitrogen Dioksida (NO2), Sulfur Dioksida (SO2), Ozon troposferik (O3), Formaldehida (HCHO), dan Metana (CH4). Pemantauan keenam gas tersebut dari waktu ke waktu diperlukan untuk memahami karakteristik kualitas udara di Pamekasan.</p>
+</section>
+<section id="business-understanding">
+<h2>1. Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h2>
+<section id="tujuan-analisis">
+<h3>1.1 Tujuan Analisis<a class="headerlink" href="#tujuan-analisis" title="Link to this heading">#</a></h3>
+<p>Menelusuri sumber-sumber utama polutan udara serta memetakan kondisi kualitas udara di wilayah Kabupaten Pamekasan, melalui pengambilan data satelit untuk enam parameter (CO, NO2, SO2, O3, HCHO, CH4), dilanjutkan dengan eksplorasi data (<em>data understanding</em>), dan divisualisasikan dalam bentuk <em>time series</em> untuk rentang waktu minimal satu tahun hingga 31 Agustus 2026.</p>
+</section>
+<section id="manfaat-analisis">
+<h3>1.2 Manfaat Analisis<a class="headerlink" href="#manfaat-analisis" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Memetakan pola naik-turunnya konsentrasi tiap gas pencemar di Pamekasan sepanjang periode pengamatan.</p></li>
+<li><p>Menduga kontribusi aktivitas lokal (pertanian, peternakan, produksi garam, perikanan, transportasi) terhadap tiap jenis polutan.</p></li>
+<li><p>Menyediakan gambaran awal kualitas udara yang bisa menjadi rujukan warga maupun pemangku kebijakan setempat.</p></li>
+<li><p>Menjadi pijakan data (baseline) untuk tahap pembersihan data dan pemodelan pada pertemuan berikutnya.</p></li>
+<li><p>Melatih keterampilan pengambilan data satelit (remote sensing crawling) serta eksplorasi data deret waktu lingkungan.</p></li>
+</ol>
+</section>
+<section id="dugaan-sumber-tiap-polutan">
+<h3>1.3 Dugaan Sumber Tiap Polutan<a class="headerlink" href="#dugaan-sumber-tiap-polutan" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Polutan</p></th>
+<th class="head"><p>Apa Itu?</p></th>
+<th class="head"><p>Dugaan Sumber di Pamekasan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>CO</strong> (Karbon Monoksida)</p></td>
+<td><p>Gas tak berwarna &amp; tak berbau, terbentuk dari pembakaran bahan bakar yang tidak sempurna</p></td>
+<td><p>Knalpot kendaraan bermotor, mesin kapal nelayan diesel, pembakaran jerami/lahan pertanian sisa panen</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>NO2</strong> (Nitrogen Dioksida)</p></td>
+<td><p>Gas oksida nitrogen hasil pembakaran suhu tinggi</p></td>
+<td><p>Emisi kendaraan bermotor di jalur lintas Madura, genset/mesin diesel kapal nelayan dan penggilingan</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SO2</strong> (Sulfur Dioksida)</p></td>
+<td><p>Gas hasil pembakaran bahan bakar yang mengandung unsur belerang</p></td>
+<td><p>Mesin kapal nelayan berbahan bakar solar, proses evaporasi/pengolahan air laut pada tambak garam, pembakaran bahan bakar fosil skala kecil</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>O3</strong> (Ozon Troposferik)</p></td>
+<td><p>Bukan diemisikan langsung; polutan sekunder hasil reaksi fotokimia NOx dengan senyawa organik volatil di bawah sinar matahari</p></td>
+<td><p>Terbentuk secara tidak langsung dari interaksi emisi kendaraan dan sinar matahari, umum meningkat pada siang hari cerah</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>HCHO</strong> (Formaldehida)</p></td>
+<td><p>Senyawa organik volatil (VOC) hasil oksidasi hidrokarbon di atmosfer</p></td>
+<td><p>Pembakaran biomassa/limbah pertanian, oksidasi metana dari peternakan, serta emisi kendaraan bermotor</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CH4</strong> (Metana)</p></td>
+<td><p>Gas rumah kaca, terkait erat dengan siklus biologis</p></td>
+<td><p>Fermentasi enterik ternak sapi, lahan sawah tergenang air, dan dekomposisi limbah organik/TPA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="deskripsi-umum-data">
+<h3>1.4 Deskripsi Umum Data<a class="headerlink" href="#deskripsi-umum-data" title="Link to this heading">#</a></h3>
+<p>Data yang dipakai bersumber dari misi satelit <strong>Sentinel-5P (instrumen TROPOMI)</strong> yang dikelola oleh Copernicus/ESA, diakses melalui layanan <strong>openEO</strong> pada <strong>Copernicus Data Space Ecosystem (CDSE)</strong>. Data berupa nilai kerapatan kolom (<em>column density</em>) harian tiap gas pada resolusi grid tertentu, yang kemudian dirata-ratakan dalam batas wilayah analisa untuk membentuk satu nilai per hari per polutan.</p>
+</section>
+</section>
+<section id="penetapan-area-analisa-aoi-melalui-geojson-io">
+<h2>2. Penetapan Area Analisa (AOI) Melalui <a class="reference external" href="http://GeoJSON.io">GeoJSON.io</a><a class="headerlink" href="#penetapan-area-analisa-aoi-melalui-geojson-io" title="Link to this heading">#</a></h2>
+<p>Batas wilayah pengambilan data digambar secara manual pada <a class="reference external" href="https://geojson.io">geojson.io</a> dalam bentuk poligon yang mencakup Kabupaten Pamekasan, lalu diekspor sebagai berkas <code class="docutils literal notranslate"><span class="pre">.geojson</span></code>. Dari poligon tersebut dihitung <em>bounding box</em> (kotak pembatas terluar) yang menjadi parameter <code class="docutils literal notranslate"><span class="pre">spatial_extent</span></code> saat memanggil data pada openEO.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="c1"># Poligon area analisa (AOI) Kabupaten Pamekasan, hasil gambar manual pada geojson.io</span>
+<span class="n">aoi_pamekasan</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Polygon&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">[</span>
+                        <span class="p">[</span><span class="mf">113.5876958</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.9670461</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.603825</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.0270799</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.6179379</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.1151155</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.5554375</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.1931807</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.5272115</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.2511372</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.4827865</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.2244607</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.4264044</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.2191357</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.4042268</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.0911074</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.4324528</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.9830559</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.4243882</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.8889907</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.5872728371105</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.898785199566333</span><span class="p">],</span>
+                        <span class="p">[</span><span class="mf">113.5876958</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.9670461</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;aoi_pamekasan.geojson&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">aoi_pamekasan</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Berkas aoi_pamekasan.geojson tersimpan.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berkas aoi_pamekasan.geojson tersimpan.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;aoi_pamekasan.geojson&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">aoi_pamekasan</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">titik_poligon</span> <span class="o">=</span> <span class="n">aoi_pamekasan</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">daftar_lon</span> <span class="o">=</span> <span class="p">[</span><span class="n">titik</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">titik</span> <span class="ow">in</span> <span class="n">titik_poligon</span><span class="p">]</span>
+<span class="n">daftar_lat</span> <span class="o">=</span> <span class="p">[</span><span class="n">titik</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">titik</span> <span class="ow">in</span> <span class="n">titik_poligon</span><span class="p">]</span>
+
+<span class="n">kotak_wilayah</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;west&quot;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">daftar_lon</span><span class="p">),</span>
+    <span class="s2">&quot;south&quot;</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">daftar_lat</span><span class="p">),</span>
+    <span class="s2">&quot;east&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">daftar_lon</span><span class="p">),</span>
+    <span class="s2">&quot;north&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">daftar_lat</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bounding box wilayah Analisa (Pamekasan):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kotak_wilayah</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bounding box wilayah Analisa (Pamekasan):
+{&#39;west&#39;: 113.4042268, &#39;south&#39;: -7.2511372, &#39;east&#39;: 113.6179379, &#39;north&#39;: -6.8889907}
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="image" src="https://hackmd.io/_uploads/Bk9v1xAwMl.png" /></p>
+</section>
+<section id="pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">
+<h2>3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem<a class="headerlink" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem" title="Link to this heading">#</a></h2>
+<section id="instalasi-autentikasi">
+<h3>3.1 Instalasi &amp; Autentikasi<a class="headerlink" href="#instalasi-autentikasi" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openeo
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openeo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading openeo-0.51.0-py3-none-any.whl.metadata (8.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests&gt;=2.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.32.5)
+Requirement already satisfied: urllib3&gt;=1.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.6.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting shapely&gt;=1.6.4 (from openeo)
+  Downloading shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy&gt;=1.17.0 (from openeo)
+  Downloading numpy-2.5.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting xarray&lt;2025.01.2,&gt;=0.12.3 (from openeo)
+  Downloading xarray-2025.1.1-py3-none-any.whl.metadata (11 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&lt;3.0.0,&gt;0.20.0 (from openeo)
+  Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac&gt;=1.5.0 (from openeo)
+  Downloading pystac-1.15.2-py3-none-any.whl.metadata (6.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting deprecated&gt;=1.2.12 (from openeo)
+  Downloading deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting geopandas&gt;=0.14 (from openeo)
+  Downloading geopandas-1.1.4-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2.9.0.post0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pytz&gt;=2020.1 (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2025.3)
+Requirement already satisfied: packaging&gt;=23.2 in /home/codespace/.local/lib/python3.12/site-packages (from xarray&lt;2025.01.2,&gt;=0.12.3-&gt;openeo) (26.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wrapt&lt;3,&gt;=1.10 (from deprecated&gt;=1.2.12-&gt;openeo)
+  Downloading wrapt-2.4.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyogrio&gt;=0.7.2 (from geopandas&gt;=0.14-&gt;openeo)
+  Downloading pyogrio-0.13.0-cp311-abi3-manylinux_2_28_x86_64.whl.metadata (5.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyproj&gt;=3.5.0 (from geopandas&gt;=0.14-&gt;openeo)
+  Downloading pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (31 kB)
+Requirement already satisfied: certifi in /home/codespace/.local/lib/python3.12/site-packages (from pyogrio&gt;=0.7.2-&gt;geopandas&gt;=0.14-&gt;openeo) (2026.2.25)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-core&lt;2,&gt;=1.15.0 (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_core-1.15.2-py3-none-any.whl.metadata (1.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-classification (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_classification-2.0.1-py3-none-any.whl.metadata (2.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-datacube (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_datacube-2.2.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-eo (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_eo-1.1.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-file (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_file-2.1.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-grid (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_grid-1.1.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-item-assets (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_item_assets-1.0.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-label (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_label-1.0.2-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-mgrs (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_mgrs-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting pystac-ext-mlm (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_mlm-1.4.1-py3-none-any.whl.metadata (2.2 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-pointcloud (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_pointcloud-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-projection (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_projection-2.0.1-py3-none-any.whl.metadata (2.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-raster (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_raster-1.1.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-render (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_render-2.0.0-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-sar (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_sar-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting pystac-ext-sat (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_sat-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-scientific (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_scientific-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-storage (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_storage-2.0.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-table (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_table-1.2.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting pystac-ext-timestamps (from pystac&gt;=1.5.0-&gt;openeo)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pystac_ext_timestamps-1.1.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting pystac-ext-version (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_version-1.2.1-py3-none-any.whl.metadata (1.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-view (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_view-1.0.1-py3-none-any.whl.metadata (1.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-ext-xarray-assets (from pystac&gt;=1.5.0-&gt;openeo)
+  Downloading pystac_ext_xarray_assets-1.0.1-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.5)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.11)
+Downloading openeo-0.51.0-py3-none-any.whl (349 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.4 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/12.4 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.3/12.4 MB</span> <span class=" -Color -Color-Red">75.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.3/12.4 MB</span> <span class=" -Color -Color-Red">75.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">12.4/12.4 MB</span> <span class=" -Color -Color-Red">26.3 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading xarray-2025.1.1-py3-none-any.whl (1.2 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/1.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">1.2/1.2 MB</span> <span class=" -Color -Color-Red">27.5 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading wrapt-2.4.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (227 kB)
+Downloading geopandas-1.1.4-py3-none-any.whl (343 kB)
+Downloading numpy-2.5.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/16.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">243.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">243.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.7/16.7 MB</span> <span class=" -Color -Color-Red">35.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pyogrio-0.13.0-cp311-abi3-manylinux_2_28_x86_64.whl (33.3 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/33.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.3/33.3 MB</span> <span class=" -Color -Color-Red">277.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.3/33.3 MB</span> <span class=" -Color -Color-Red">277.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.3/33.3 MB</span> <span class=" -Color -Color-Red">277.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">33.3/33.3 MB</span> <span class=" -Color -Color-Red">277.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">33.3/33.3 MB</span> <span class=" -Color -Color-Red">34.8 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl (9.6 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/9.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">9.4/9.6 MB</span> <span class=" -Color -Color-Red">289.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">9.6/9.6 MB</span> <span class=" -Color -Color-Red">42.1 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pystac-1.15.2-py3-none-any.whl (5.7 kB)
+Downloading pystac_core-1.15.2-py3-none-any.whl (117 kB)
+Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.1 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/3.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.1/3.1 MB</span> <span class=" -Color -Color-Red">31.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pystac_ext_classification-2.0.1-py3-none-any.whl (7.4 kB)
+Downloading pystac_ext_datacube-2.2.1-py3-none-any.whl (7.1 kB)
+Downloading pystac_ext_eo-1.1.1-py3-none-any.whl (7.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_file-2.1.1-py3-none-any.whl (5.8 kB)
+Downloading pystac_ext_grid-1.1.1-py3-none-any.whl (3.6 kB)
+Downloading pystac_ext_item_assets-1.0.1-py3-none-any.whl (3.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_label-1.0.2-py3-none-any.whl (8.2 kB)
+Downloading pystac_ext_mgrs-1.0.1-py3-none-any.whl (4.1 kB)
+Downloading pystac_ext_mlm-1.4.1-py3-none-any.whl (13 kB)
+Downloading pystac_ext_pointcloud-1.0.1-py3-none-any.whl (6.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_projection-2.0.1-py3-none-any.whl (7.4 kB)
+Downloading pystac_ext_raster-1.1.1-py3-none-any.whl (6.8 kB)
+Downloading pystac_ext_render-2.0.0-py3-none-any.whl (5.0 kB)
+Downloading pystac_ext_sar-1.0.1-py3-none-any.whl (6.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_sat-1.0.1-py3-none-any.whl (4.9 kB)
+Downloading pystac_ext_scientific-1.0.1-py3-none-any.whl (5.5 kB)
+Downloading pystac_ext_storage-2.0.1-py3-none-any.whl (7.6 kB)
+Downloading pystac_ext_table-1.2.1-py3-none-any.whl (4.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_timestamps-1.1.1-py3-none-any.whl (4.6 kB)
+Downloading pystac_ext_version-1.2.1-py3-none-any.whl (5.8 kB)
+Downloading pystac_ext_view-1.0.1-py3-none-any.whl (4.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pystac_ext_xarray_assets-1.0.1-py3-none-any.whl (3.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pytz, wrapt, pyproj, numpy, shapely, pystac-core, pyogrio, pandas, deprecated, xarray, pystac-ext-xarray-assets, pystac-ext-view, pystac-ext-version, pystac-ext-timestamps, pystac-ext-table, pystac-ext-storage, pystac-ext-scientific, pystac-ext-sat, pystac-ext-sar, pystac-ext-render, pystac-ext-raster, pystac-ext-projection, pystac-ext-pointcloud, pystac-ext-mgrs, pystac-ext-label, pystac-ext-item-assets, pystac-ext-grid, pystac-ext-file, pystac-ext-datacube, geopandas, pystac-ext-eo, pystac-ext-classification, pystac-ext-mlm, pystac, openeo
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 1/35</span> [wrapt]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 2/35</span> [pyproj]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 3/35</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 4/35</span> [shapely]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 4/35</span> [shapely]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/35</span> [pystac-core]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 6/35</span> [pyogrio]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 6/35</span> [pyogrio]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 6/35</span> [pyogrio]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 7/35</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/35</span> [xarray]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">13/35</span> [pystac-ext-timestamps]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━</span> <span class=" -Color -Color-Green">28/35</span> [pystac-ext-datacube]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━</span> <span class=" -Color -Color-Green">29/35</span> [geopandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━</span> <span class=" -Color -Color-Green">30/35</span> [pystac-ext-eo]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━</span> <span class=" -Color -Color-Green">34/35</span> [openeo]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">35/35</span> [openeo]
+?25h
+Successfully installed deprecated-1.3.1 geopandas-1.1.4 numpy-2.5.2 openeo-0.51.0 pandas-2.3.3 pyogrio-0.13.0 pyproj-3.7.2 pystac-1.15.2 pystac-core-1.15.2 pystac-ext-classification-2.0.1 pystac-ext-datacube-2.2.1 pystac-ext-eo-1.1.1 pystac-ext-file-2.1.1 pystac-ext-grid-1.1.1 pystac-ext-item-assets-1.0.1 pystac-ext-label-1.0.2 pystac-ext-mgrs-1.0.1 pystac-ext-mlm-1.4.1 pystac-ext-pointcloud-1.0.1 pystac-ext-projection-2.0.1 pystac-ext-raster-1.1.1 pystac-ext-render-2.0.0 pystac-ext-sar-1.0.1 pystac-ext-sat-1.0.1 pystac-ext-scientific-1.0.1 pystac-ext-storage-2.0.1 pystac-ext-table-1.2.1 pystac-ext-timestamps-1.1.1 pystac-ext-version-1.2.1 pystac-ext-view-1.0.1 pystac-ext-xarray-assets-1.0.1 pytz-2026.3.post1 shapely-2.1.2 wrapt-2.4.0 xarray-2025.1.1
+
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">26.0.1</span> -&gt; <span class=" -Color -Color-Green">26.2.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">openeo</span>
+
+<span class="n">koneksi</span> <span class="o">=</span> <span class="n">openeo</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;openeo.dataspace.copernicus.eu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">authenticate_oidc</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=ASHN-IDJG" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=ASHN-IDJG" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=ASHN-IDJG</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=ASHN-IDJG');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html"><code>[##################################---]</code> ⌛ Authorization pending</div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">openeo</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">koneksi</span> <span class="o">=</span> <span class="n">openeo</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;openeo.dataspace.copernicus.eu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">authenticate_oidc</span><span class="p">()</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/connection.py:697,</span> in <span class="ni">Connection.authenticate_oidc</span><span class="nt">(self, provider_id, client_id, client_secret, store_refresh_token, use_pkce, display, max_poll_time)</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span> <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Trying device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span> <span class="n">authenticator</span> <span class="o">=</span> <span class="n">OidcDeviceAuthenticator</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">client_info</span><span class="o">=</span><span class="n">client_info</span><span class="p">,</span> <span class="n">use_pkce</span><span class="o">=</span><span class="n">use_pkce</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">max_poll_time</span><span class="o">=</span><span class="n">max_poll_time</span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">697</span> <span class="n">con</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate_oidc</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="n">authenticator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="n">provider_id</span><span class="o">=</span><span class="n">provider_id</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="n">store_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>     <span class="c1"># TODO: expose `auto_renew_from_refresh_token` directly as option instead of reusing `store_refresh_token` arg?</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>     <span class="n">auto_renew_from_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authenticated using device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="k">return</span> <span class="n">con</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/connection.py:413,</span> in <span class="ni">Connection._authenticate_oidc</span><span class="nt">(self, authenticator, provider_id, store_refresh_token, auto_renew_from_refresh_token, fallback_refresh_token, oidc_auth_renewer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span><span class="sd"> Authenticate through OIDC and set up bearer token (based on OIDC access_token) for further requests.</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">request_refresh_token</span> <span class="o">=</span> <span class="n">store_refresh_token</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">oidc_auth_renewer</span> <span class="ow">and</span> <span class="n">auto_renew_from_refresh_token</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">413</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">authenticator</span><span class="o">.</span><span class="n">get_tokens</span><span class="p">(</span><span class="n">request_refresh_token</span><span class="o">=</span><span class="n">request_refresh_token</span><span class="p">)</span>
+<span class="nn">    414 _log.info(&quot;Obtained tokens: {t}&quot;.format(t=[k for k, v</span> in <span class="ni">tokens._asdict().items</span><span class="nt">() if v]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">tokens</span><span class="o">.</span><span class="n">refresh_token</span> <span class="ow">or</span> <span class="n">fallback_refresh_token</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/auth/oidc.py:928,</span> in <span class="ni">OidcDeviceAuthenticator.get_tokens</span><span class="nt">(self, request_refresh_token)</span>
+<span class="g g-Whitespace">    </span><span class="mi">926</span> <span class="k">while</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_poll_time</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="n">poll_ui</span><span class="o">.</span><span class="n">show_progress</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">928</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="k">if</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">next_poll</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>         <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>             <span class="sa">f</span><span class="s2">&quot;Doing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grant_type</span><span class="si">!r}</span><span class="s2"> token request </span><span class="si">{</span><span class="n">token_endpoint</span><span class="si">!r}</span><span class="s2"> with post data fields </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">post_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">!r}</span><span class="s2"> (client_id </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>         <span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mengunduh-enam-parameter-polutan">
+<h3>3.2 Mengunduh Enam Parameter Polutan<a class="headerlink" href="#mengunduh-enam-parameter-polutan" title="Link to this heading">#</a></h3>
+<p>Rentang waktu ditetapkan <strong>1 tahun penuh</strong>, dari <strong>31 Agustus 2025</strong> sampai <strong>31 Agustus 2026</strong>, memenuhi ketentuan tugas (data terkini, minimal satu tahun sampai 31 Agustus 2026). Karena koleksi <code class="docutils literal notranslate"><span class="pre">SENTINEL_5P_L2</span></code> pada openEO hanya mengizinkan satu <em>band</em> per permintaan, pengambilan data dilakukan bergiliran untuk tiap polutan menggunakan perulangan, dan masing-masing hasil disimpan sebagai berkas NetCDF (<code class="docutils literal notranslate"><span class="pre">.nc</span></code>) terpisah.</p>
+<blockquote>
+<div><p><strong>Catatan:</strong> jika notebook dijalankan sebelum tanggal 31 Agustus 2026, cakupan data hanya akan sampai pada tanggal perekaman satelit terakhir yang tersedia saat itu. Jalankan ulang mendekati/ setelah tanggal tersebut untuk mendapatkan rentang data yang benar-benar penuh satu tahun.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daftar_polutan</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CO&quot;</span><span class="p">,</span> <span class="s2">&quot;NO2&quot;</span><span class="p">,</span> <span class="s2">&quot;SO2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&quot;</span><span class="p">,</span> <span class="s2">&quot;HCHO&quot;</span><span class="p">,</span> <span class="s2">&quot;CH4&quot;</span><span class="p">]</span>
+
+<span class="n">tanggal_mulai</span> <span class="o">=</span> <span class="s2">&quot;2025-08-31&quot;</span>
+<span class="n">tanggal_akhir</span> <span class="o">=</span> <span class="s2">&quot;2026-08-31&quot;</span>
+
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">kubus_data</span> <span class="o">=</span> <span class="n">koneksi</span><span class="o">.</span><span class="n">load_collection</span><span class="p">(</span>
+        <span class="s2">&quot;SENTINEL_5P_L2&quot;</span><span class="p">,</span>
+        <span class="n">temporal_extent</span><span class="o">=</span><span class="p">[</span><span class="n">tanggal_mulai</span><span class="p">,</span> <span class="n">tanggal_akhir</span><span class="p">],</span>
+        <span class="n">spatial_extent</span><span class="o">=</span><span class="n">kotak_wilayah</span><span class="p">,</span>
+        <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="n">gas</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">kubus_harian</span> <span class="o">=</span> <span class="n">kubus_data</span><span class="o">.</span><span class="n">aggregate_temporal_period</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">)</span>
+    <span class="n">kubus_harian</span><span class="o">.</span><span class="n">execute_batch</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> Pamekasan&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2">_pamekasan.nc&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data </span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> selesai diunduh -&gt; </span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2">_pamekasan.nc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:00 Job &#39;j-26083014471149e6890909b854393195&#39;: send &#39;start&#39;
+0:00:03 Job &#39;j-26083014471149e6890909b854393195&#39;: created (progress 0%)
+0:00:08 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
+0:00:14 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
+0:00:22 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
+0:00:32 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
+0:00:45 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
+0:01:00 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:01:19 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:01:43 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:02:13 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:02:50 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:03:37 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
+0:04:35 Job &#39;j-26083014471149e6890909b854393195&#39;: finished (progress 100%)
+Data CO selesai diunduh -&gt; CO_pamekasan.nc
+0:00:00 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: send &#39;start&#39;
+0:00:02 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:07 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:13 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:21 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:31 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:43 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:00:59 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:01:18 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
+0:01:42 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
+0:02:12 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
+0:02:49 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
+0:03:36 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: finished (progress 100%)
+Data NO2 selesai diunduh -&gt; NO2_pamekasan.nc
+0:00:00 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: send &#39;start&#39;
+0:00:02 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
+0:00:07 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
+0:00:13 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
+0:00:21 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
+0:00:31 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
+0:00:43 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
+0:00:59 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
+0:01:18 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
+0:01:42 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
+0:02:12 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
+0:02:49 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: finished (progress 100%)
+Data SO2 selesai diunduh -&gt; SO2_pamekasan.nc
+0:00:00 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: send &#39;start&#39;
+0:00:02 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:07 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:13 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:21 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:31 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:43 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
+0:00:59 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
+0:01:18 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
+0:01:42 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
+0:02:12 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
+0:02:49 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
+0:03:36 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: finished (progress 100%)
+Data O3 selesai diunduh -&gt; O3_pamekasan.nc
+0:00:00 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: send &#39;start&#39;
+0:00:02 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: created (progress 0%)
+0:00:07 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:00:13 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:00:21 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:00:31 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:00:44 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:00:59 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
+0:01:18 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
+0:01:42 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
+0:02:12 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
+0:02:50 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: finished (progress 100%)
+Data HCHO selesai diunduh -&gt; HCHO_pamekasan.nc
+0:00:00 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: send &#39;start&#39;
+0:00:03 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
+0:00:08 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
+0:00:14 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
+0:00:22 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:00:32 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:00:44 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:01:00 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:01:19 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:01:43 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:02:13 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
+0:02:50 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: finished (progress 100%)
+Data CH4 selesai diunduh -&gt; CH4_pamekasan.nc
+</pre></div>
+</div>
+</div>
+</div>
+<p>Status N/A yang muncul pada proses running dapat diabaikan karena hanya menunjukkan bahwa persentase progres tidak dapat ditampilkan oleh server pada saat itu. Selama status job masih berada pada kondisi running, proses pengolahan data tetap berjalan normal.
+Selain melalui terminal, proses pengambilan data juga dapat dipantau melalui halaman OpenEO Editor:</p>
+<p><a class="reference external" href="https://editor.openeo.org/?server=https%3A%2F%2Fopeneo.dataspace.copernicus.eu%2Fopeneo%2F1.2">openEO Web Editor</a></p>
+<p>Pada halaman tersebut akan ditampilkan daftar job yang pernah dijalankan, termasuk nama dataset, status proses, waktu eksekusi, serta file hasil yang dapat diunduh setelah proses selesai. Dengan demikian, pengguna dapat memantau perkembangan pengambilan data secara langsung hingga status berubah menjadi finished.</p>
+<p><img alt="image" src="https://hackmd.io/_uploads/S1l9eg0Pzl.png" /></p>
+</section>
+</section>
+<section id="data-understanding">
+<h2>4. Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h2>
+<section id="membaca-berkas-netcdf-menyimpan-sebagai-csv">
+<h3>4.1 Membaca Berkas NetCDF &amp; Menyimpan sebagai CSV<a class="headerlink" href="#membaca-berkas-netcdf-menyimpan-sebagai-csv" title="Link to this heading">#</a></h3>
+<p>Tiap berkas <code class="docutils literal notranslate"><span class="pre">.nc</span></code> dibuka menggunakan <code class="docutils literal notranslate"><span class="pre">netCDF4</span></code>, dihitung rata-rata harian pada seluruh grid dalam wilayah analisa (mengabaikan piksel yang tertutup awan/<em>masked</em>), lalu digabungkan berdasarkan tanggal menjadi satu tabel dan disimpan ke satu berkas CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>netCDF4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting netCDF4
+  Downloading netcdf4-1.7.4-cp311-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+Collecting cftime (from netCDF4)
+  Downloading cftime-1.6.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (8.7 kB)
+Requirement already satisfied: certifi in /usr/local/lib/python3.13/dist-packages (from netCDF4) (2026.7.22)
+Requirement already satisfied: numpy&gt;=1.21.2 in /usr/local/lib/python3.13/dist-packages (from netCDF4) (2.1.3)
+Downloading netcdf4-1.7.4-cp311-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (10.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">63.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading cftime-1.6.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">54.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hInstalling collected packages: cftime, netCDF4
+Successfully installed cftime-1.6.5 netCDF4-1.7.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">netCDF4</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">baca_rata_rata_harian</span><span class="p">(</span><span class="n">nama_band</span><span class="p">,</span> <span class="n">nama_berkas</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">nama_berkas</span><span class="p">)</span>
+
+    <span class="n">nilai</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">nama_band</span><span class="p">][:]</span>
+    <span class="n">waktu</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][:]</span>
+    <span class="n">satuan_waktu</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
+
+    <span class="n">tanggal</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">waktu</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">satuan_waktu</span><span class="p">)</span>
+    <span class="n">tanggal_harian</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tanggal</span><span class="p">]</span>
+
+    <span class="n">rata_harian</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nilai</span><span class="p">)):</span>
+        <span class="n">grid_harian</span> <span class="o">=</span> <span class="n">nilai</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">nilai_rata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">grid_harian</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">nilai_rata</span><span class="p">):</span>
+            <span class="n">nilai_rata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nilai_rata</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">nilai_rata</span><span class="p">)</span>
+
+        <span class="n">rata_harian</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nilai_rata</span><span class="p">)</span>
+
+    <span class="n">df_hasil</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">tanggal_harian</span><span class="p">,</span> <span class="n">nama_band</span><span class="p">:</span> <span class="n">rata_harian</span><span class="p">})</span>
+    <span class="n">df_hasil</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_hasil</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">])</span>
+    <span class="n">df_hasil</span><span class="p">[</span><span class="n">nama_band</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_hasil</span><span class="p">[</span><span class="n">nama_band</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_hasil</span>
+
+
+<span class="n">kumpulan_df</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">df_gas</span> <span class="o">=</span> <span class="n">baca_rata_rata_harian</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2">_pamekasan.nc&quot;</span><span class="p">)</span>
+    <span class="n">kumpulan_df</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_gas</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">df_gas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> baris berhasil dibaca&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gabungkan seluruh polutan berdasarkan kolom tanggal</span>
+<span class="n">df_polutan_pamekasan</span> <span class="o">=</span> <span class="n">kumpulan_df</span><span class="p">[</span><span class="n">daftar_polutan</span><span class="p">[</span><span class="mi">0</span><span class="p">]][[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">df_polutan_pamekasan</span> <span class="o">=</span> <span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">kumpulan_df</span><span class="p">[</span><span class="n">gas</span><span class="p">][[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">,</span> <span class="n">gas</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;tanggal&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">df_polutan_pamekasan</span> <span class="o">=</span> <span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;tanggal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_polutan_pamekasan.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Berhasil menyimpan </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">)</span><span class="si">}</span><span class="s2"> baris ke data_polutan_pamekasan.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CO: 365 baris berhasil dibaca
+NO2: 363 baris berhasil dibaca
+SO2: 362 baris berhasil dibaca
+O3: 362 baris berhasil dibaca
+HCHO: 362 baris berhasil dibaca
+CH4: 213 baris berhasil dibaca
+
+Berhasil menyimpan 365 baris ke data_polutan_pamekasan.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="image" src="https://hackmd.io/_uploads/rJyhR6WOGg.png" /></p>
+<p>Kemudian di download untuk melihat hasil pengambilan data</p>
+<p><img alt="image" src="https://hackmd.io/_uploads/By1_ApbOMl.png" /></p>
+</section>
+<section id="eksplorasi-struktur-isi-data">
+<h3>4.2 Eksplorasi Struktur &amp; Isi Data<a class="headerlink" href="#eksplorasi-struktur-isi-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Struktur Data Polutan Pamekasan ===&quot;</span><span class="p">)</span>
+<span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Ukuran Dataset ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah baris :&quot;</span><span class="p">,</span> <span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kolom :&quot;</span><span class="p">,</span> <span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Nama Kolom ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Lima Data Teratas ===&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Lima Data Terbawah ===&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Struktur Data Polutan Pamekasan ===
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 365 entries, 0 to 364
+Data columns (total 7 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   tanggal  365 non-null    datetime64[ns]
+ 1   CO       252 non-null    float64       
+ 2   NO2      279 non-null    float64       
+ 3   SO2      305 non-null    float64       
+ 4   O3       361 non-null    float64       
+ 5   HCHO     313 non-null    float64       
+ 6   CH4      92 non-null     float64       
+dtypes: datetime64[ns](1), float64(6)
+memory usage: 20.1 KB
+
+=== Ukuran Dataset ===
+Jumlah baris : 365
+Jumlah kolom : 7
+
+=== Nama Kolom ===
+[&#39;tanggal&#39;, &#39;CO&#39;, &#39;NO2&#39;, &#39;SO2&#39;, &#39;O3&#39;, &#39;HCHO&#39;, &#39;CH4&#39;]
+
+=== Lima Data Teratas ===
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-9632d4e6-f5ae-43d5-b81a-650070aba657" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tanggal</th>
+      <th>CO</th>
+      <th>NO2</th>
+      <th>SO2</th>
+      <th>O3</th>
+      <th>HCHO</th>
+      <th>CH4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2025-08-31</td>
+      <td>0.028413</td>
+      <td>0.000012</td>
+      <td>-0.000103</td>
+      <td>0.116304</td>
+      <td>0.000152</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2025-09-01</td>
+      <td>0.026705</td>
+      <td>0.000006</td>
+      <td>-0.000069</td>
+      <td>0.115098</td>
+      <td>0.000043</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2025-09-02</td>
+      <td>0.025357</td>
+      <td>0.000007</td>
+      <td>0.000013</td>
+      <td>0.114357</td>
+      <td>0.000046</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2025-09-03</td>
+      <td>0.026524</td>
+      <td>0.000011</td>
+      <td>0.000019</td>
+      <td>0.113698</td>
+      <td>0.000067</td>
+      <td>1890.583083</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2025-09-04</td>
+      <td>0.026057</td>
+      <td>0.000013</td>
+      <td>-0.000011</td>
+      <td>0.113273</td>
+      <td>0.000092</td>
+      <td>1840.894531</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9632d4e6-f5ae-43d5-b81a-650070aba657')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-9632d4e6-f5ae-43d5-b81a-650070aba657 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-9632d4e6-f5ae-43d5-b81a-650070aba657');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Lima Data Terbawah ===
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-143bde17-97c8-4810-adf0-71ca03bb1aee" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tanggal</th>
+      <th>CO</th>
+      <th>NO2</th>
+      <th>SO2</th>
+      <th>O3</th>
+      <th>HCHO</th>
+      <th>CH4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>360</th>
+      <td>2026-08-26</td>
+      <td>0.027989</td>
+      <td>0.000020</td>
+      <td>0.000111</td>
+      <td>0.118790</td>
+      <td>0.000116</td>
+      <td>1907.810724</td>
+    </tr>
+    <tr>
+      <th>361</th>
+      <td>2026-08-27</td>
+      <td>0.029515</td>
+      <td>0.000025</td>
+      <td>0.000058</td>
+      <td>0.118135</td>
+      <td>0.000178</td>
+      <td>1901.543380</td>
+    </tr>
+    <tr>
+      <th>362</th>
+      <td>2026-08-28</td>
+      <td>0.032623</td>
+      <td>0.000021</td>
+      <td>0.000075</td>
+      <td>0.116215</td>
+      <td>0.000184</td>
+      <td>1896.543457</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>2026-08-29</td>
+      <td>NaN</td>
+      <td>0.000013</td>
+      <td>-0.000028</td>
+      <td>0.116368</td>
+      <td>0.000025</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>364</th>
+      <td>2026-08-30</td>
+      <td>0.030614</td>
+      <td>0.000014</td>
+      <td>0.000010</td>
+      <td>0.114166</td>
+      <td>0.000115</td>
+      <td>1884.014160</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-143bde17-97c8-4810-adf0-71ca03bb1aee')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-143bde17-97c8-4810-adf0-71ca03bb1aee button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-143bde17-97c8-4810-adf0-71ca03bb1aee');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="penjelasan-tiap-fitur">
+<h3>4.3 Penjelasan Tiap Fitur<a class="headerlink" href="#penjelasan-tiap-fitur" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>tanggal</strong> — tanggal observasi harian (hasil agregasi rata-rata dari seluruh piksel di wilayah analisa).</p></li>
+<li><p><strong>CO</strong> — kerapatan kolom karbon monoksida (mol/m²); indikator pembakaran tidak sempurna.</p></li>
+<li><p><strong>NO2</strong> — kerapatan kolom nitrogen dioksida (mol/m²); indikator emisi kendaraan/pembakaran suhu tinggi.</p></li>
+<li><p><strong>SO2</strong> — kerapatan kolom sulfur dioksida (mol/m²); indikator pembakaran bahan bakar bersulfur.</p></li>
+<li><p><strong>O3</strong> — kerapatan kolom ozon troposferik (mol/m²); polutan sekunder hasil fotokimia.</p></li>
+<li><p><strong>HCHO</strong> — kerapatan kolom formaldehida (mol/m²); indikator VOC dan pembakaran biomassa.</p></li>
+<li><p><strong>CH4</strong> — kerapatan kolom metana (mol/m² atau ppb tergantung produk); terkait aktivitas biologis/peternakan/pertanian.</p></li>
+</ul>
+</section>
+<section id="pengecekan-missing-value">
+<h3>4.4 Pengecekan Missing Value<a class="headerlink" href="#pengecekan-missing-value" title="Link to this heading">#</a></h3>
+<p>Nilai kosong (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>) pada data Sentinel-5P umumnya disebabkan oleh <strong>tutupan awan</strong> yang menghalangi sensor optik satelit pada tanggal tertentu, bukan kesalahan pencatatan data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Polutan&#39;</span><span class="si">:</span><span class="s2">&lt;8</span><span class="si">}{</span><span class="s1">&#39;Total Baris&#39;</span><span class="si">:</span><span class="s2">&lt;14</span><span class="si">}{</span><span class="s1">&#39;Jumlah Kosong&#39;</span><span class="si">:</span><span class="s2">&lt;16</span><span class="si">}{</span><span class="s1">&#39;Persentase&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">total_baris</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">)</span>
+    <span class="n">jumlah_kosong</span> <span class="o">=</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">persentase</span> <span class="o">=</span> <span class="n">jumlah_kosong</span> <span class="o">/</span> <span class="n">total_baris</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">total_baris</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">:</span><span class="s2">&lt;8</span><span class="si">}{</span><span class="n">total_baris</span><span class="si">:</span><span class="s2">&lt;14</span><span class="si">}{</span><span class="n">jumlah_kosong</span><span class="si">:</span><span class="s2">&lt;16</span><span class="si">}{</span><span class="n">persentase</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polutan Total Baris   Jumlah Kosong   Persentase
+CO      365           113             30.96%
+NO2     365           86              23.56%
+SO2     365           60              16.44%
+O3      365           4               1.10%
+HCHO    365           52              14.25%
+CH4     365           273             74.79%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">
+<h3>4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)<a class="headerlink" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier" title="Link to this heading">#</a></h3>
+<p>Statistik deskriptif serta deteksi outlier dengan metode <strong>IQR (Interquartile Range)</strong> digunakan untuk melihat sebaran nilai tiap gas dan mengidentifikasi kejanggalan data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ringkasan</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">nilai_valid</span> <span class="o">=</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="n">kuartil_1</span> <span class="o">=</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">kuartil_3</span> <span class="o">=</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">rentang_iqr</span> <span class="o">=</span> <span class="n">kuartil_3</span> <span class="o">-</span> <span class="n">kuartil_1</span>
+
+    <span class="n">batas_bawah</span> <span class="o">=</span> <span class="n">kuartil_1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">rentang_iqr</span>
+    <span class="n">batas_atas</span> <span class="o">=</span> <span class="n">kuartil_3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">rentang_iqr</span>
+
+    <span class="n">jumlah_outlier</span> <span class="o">=</span> <span class="p">((</span><span class="n">nilai_valid</span> <span class="o">&lt;</span> <span class="n">batas_bawah</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">nilai_valid</span> <span class="o">&gt;</span> <span class="n">batas_atas</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="n">ringkasan</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">&quot;Polutan&quot;</span><span class="p">:</span> <span class="n">gas</span><span class="p">,</span>
+        <span class="s2">&quot;Min&quot;</span><span class="p">:</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="s2">&quot;Max&quot;</span><span class="p">:</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s2">&quot;Rata-rata&quot;</span><span class="p">:</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s2">&quot;Std&quot;</span><span class="p">:</span> <span class="n">nilai_valid</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s2">&quot;Q1&quot;</span><span class="p">:</span> <span class="n">kuartil_1</span><span class="p">,</span>
+        <span class="s2">&quot;Q3&quot;</span><span class="p">:</span> <span class="n">kuartil_3</span><span class="p">,</span>
+        <span class="s2">&quot;IQR&quot;</span><span class="p">:</span> <span class="n">rentang_iqr</span><span class="p">,</span>
+        <span class="s2">&quot;Batas Bawah&quot;</span><span class="p">:</span> <span class="n">batas_bawah</span><span class="p">,</span>
+        <span class="s2">&quot;Batas Atas&quot;</span><span class="p">:</span> <span class="n">batas_atas</span><span class="p">,</span>
+        <span class="s2">&quot;Jumlah Outlier&quot;</span><span class="p">:</span> <span class="n">jumlah_outlier</span><span class="p">,</span>
+    <span class="p">})</span>
+
+<span class="n">df_ringkasan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ringkasan</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_ringkasan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-0d9c19bb-90e7-40f2-9918-b4d05f31e100" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Polutan</th>
+      <th>Min</th>
+      <th>Max</th>
+      <th>Rata-rata</th>
+      <th>Std</th>
+      <th>Q1</th>
+      <th>Q3</th>
+      <th>IQR</th>
+      <th>Batas Bawah</th>
+      <th>Batas Atas</th>
+      <th>Jumlah Outlier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CO</td>
+      <td>0.019084</td>
+      <td>0.036531</td>
+      <td>0.027883</td>
+      <td>0.002652</td>
+      <td>0.026000</td>
+      <td>0.029433</td>
+      <td>0.003433</td>
+      <td>2.084954e-02</td>
+      <td>0.034583</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NO2</td>
+      <td>-0.000005</td>
+      <td>0.000037</td>
+      <td>0.000016</td>
+      <td>0.000006</td>
+      <td>0.000012</td>
+      <td>0.000020</td>
+      <td>0.000008</td>
+      <td>5.824531e-07</td>
+      <td>0.000032</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SO2</td>
+      <td>-0.001046</td>
+      <td>0.000415</td>
+      <td>0.000029</td>
+      <td>0.000127</td>
+      <td>-0.000022</td>
+      <td>0.000081</td>
+      <td>0.000103</td>
+      <td>-1.770098e-04</td>
+      <td>0.000236</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>O3</td>
+      <td>0.110342</td>
+      <td>0.122254</td>
+      <td>0.115667</td>
+      <td>0.002227</td>
+      <td>0.114128</td>
+      <td>0.116939</td>
+      <td>0.002811</td>
+      <td>1.099111e-01</td>
+      <td>0.121155</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HCHO</td>
+      <td>-0.000324</td>
+      <td>0.000454</td>
+      <td>0.000126</td>
+      <td>0.000076</td>
+      <td>0.000081</td>
+      <td>0.000158</td>
+      <td>0.000077</td>
+      <td>-3.374532e-05</td>
+      <td>0.000273</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CH4</td>
+      <td>1715.889160</td>
+      <td>1921.731027</td>
+      <td>1880.284557</td>
+      <td>33.475818</td>
+      <td>1866.786540</td>
+      <td>1900.927646</td>
+      <td>34.141107</td>
+      <td>1.815575e+03</td>
+      <td>1952.139306</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0d9c19bb-90e7-40f2-9918-b4d05f31e100')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-0d9c19bb-90e7-40f2-9918-b4d05f31e100 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-0d9c19bb-90e7-40f2-9918-b4d05f31e100');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+  <div id="id_18586244-58b3-48f5-8f66-5d4c597ed040">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('df_ringkasan')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_18586244-58b3-48f5-8f66-5d4c597ed040 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('df_ringkasan');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">gas</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">daftar_polutan</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sebaran Nilai </span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> (mol/m²)&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Boxplot Sebaran &amp; Potensi Outlier Tiap Polutan — Kabupaten Pamekasan&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f58414b334ecd4155a856b395eff5d55926342044a38eee67b1fabf638d53992.png" src="_images/f58414b334ecd4155a856b395eff5d55926342044a38eee67b1fabf638d53992.png" />
+</div>
+</div>
+<blockquote>
+<div><p>Perlu dicatat bahwa nilai negatif pada data kolom Sentinel-5P adalah hal yang <strong>wajar</strong> akibat <em>noise</em> sensor, terutama pada wilayah dengan konsentrasi gas yang rendah — sehingga tidak semua outlier hasil IQR otomatis berarti kesalahan data. Beberapa titik outlier justru bisa mengindikasikan kejadian nyata, misalnya musim pembakaran lahan pertanian atau lonjakan aktivitas kapal nelayan.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="visualisasi-time-series">
+<h2>5. Visualisasi Time Series<a class="headerlink" href="#visualisasi-time-series" title="Link to this heading">#</a></h2>
+<p>Grafik berikut menampilkan perubahan konsentrasi tiap gas polutan di Kabupaten Pamekasan sepanjang periode analisa, menggunakan data harian apa adanya (belum melalui tahap pembersihan/imputasi, karena tugas ini masih dibatasi hingga tahap <em>Data Understanding</em>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">gas</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">daftar_polutan</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">],</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time Series </span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> — Kabupaten Pamekasan&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> (mol/m²)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Time Series Konsentrasi Polutan Udara di Kabupaten Pamekasan</span><span class="se">\n</span><span class="s2">(31 Agustus 2025 – 31 Agustus 2026)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c57acd0524c38b9db79e2f8ceb102f353fb69c914a76986218fe7b661335cd13.png" src="_images/c57acd0524c38b9db79e2f8ceb102f353fb69c914a76986218fe7b661335cd13.png" />
+</div>
+</div>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Melalui tugas ini, data konsentrasi enam polutan udara (CO, NO2, SO2, O3, HCHO, dan CH4) di Kabupaten Pamekasan berhasil diperoleh dari satelit Sentinel-5P menggunakan layanan openEO pada Copernicus Data Space Ecosystem, dengan wilayah analisa dibatasi melalui berkas GeoJSON yang digambar di <a class="reference external" href="http://geojson.io">geojson.io</a>. Karena keterbatasan satu <em>band</em> per permintaan pada API, pengambilan data dilakukan bergiliran untuk tiap gas dan hasil akhirnya digabungkan menjadi satu berkas CSV. Tahap <em>data understanding</em> yang dilakukan mencakup pemeriksaan struktur dan isi data, deskripsi tiap fitur, identifikasi missing value (umumnya akibat tutupan awan), serta deteksi data anomali/outlier dengan metode IQR. Grafik <em>time series</em> yang dihasilkan menunjukkan pola fluktuasi tiap polutan sepanjang satu tahun pengamatan, yang diduga berkaitan dengan aktivitas pertanian, peternakan sapi, produksi garam, perikanan, serta lalu lintas kendaraan di wilayah Pamekasan. Temuan tahap ini menjadi dasar bagi tahap pembersihan data dan pemodelan lanjutan pada pertemuan berikutnya.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Selamat Datang di Catatan Saya</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-wilayah-analisa">Gambaran Wilayah Analisa</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1 Tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.2 Manfaat Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.3 Dugaan Sumber Tiap Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.4 Deskripsi Umum Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penetapan-area-analisa-aoi-melalui-geojson-io">2. Penetapan Area Analisa (AOI) Melalui GeoJSON.io</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-autentikasi">3.1 Instalasi &amp; Autentikasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengunduh-enam-parameter-polutan">3.2 Mengunduh Enam Parameter Polutan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">4. Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-berkas-netcdf-menyimpan-sebagai-csv">4.1 Membaca Berkas NetCDF &amp; Menyimpan sebagai CSV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-struktur-isi-data">4.2 Eksplorasi Struktur &amp; Isi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-tiap-fitur">4.3 Penjelasan Tiap Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-missing-value">4.4 Pengecekan Missing Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5. Visualisasi Time Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rian Renaldy (240411100053)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
