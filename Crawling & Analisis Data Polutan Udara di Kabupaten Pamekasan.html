@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Crawling & Analisis Data Polutan Udara di Kabupaten Pamekasan';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -220,6 +222,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan</a></li>
+
 </ul>
 
     </div>
@@ -412,16 +415,18 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-wilayah-analisa">Gambaran Wilayah Analisa</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1 Tujuan Analisis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.2 Manfaat Analisis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.3 Dugaan Sumber Tiap Polutan</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.4 Deskripsi Umum Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.2 Tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.3 Manfaat Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.4 Dugaan Sumber Tiap Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.5 Deskripsi Umum Data</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penetapan-area-analisa-aoi-melalui-geojson-io">2. Penetapan Area Analisa (AOI) Melalui GeoJSON.io</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling">3. Pengambilan Data (Crawling)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-autentikasi">3.1 Instalasi &amp; Autentikasi</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengunduh-enam-parameter-polutan">3.2 Mengunduh Enam Parameter Polutan</a></li>
 </ul>
@@ -431,12 +436,44 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-struktur-isi-data">4.2 Eksplorasi Struktur &amp; Isi Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-tiap-fitur">4.3 Penjelasan Tiap Fitur</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-missing-value">4.4 Pengecekan Missing Value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.4 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5. Visualisasi Time Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-ke-postgresql-aiven-dan-penarikannya-ke-knime">Penyimpanan Data ke PostgreSQL (Aiven) dan Penarikannya ke KNIME</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-ke-basis-data-postgresql-aiven">1. Penyimpanan Data ke Basis Data (PostgreSQL — Aiven)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-dari-postgresql-aiven-ke-knime">2. Menarik Data dari PostgreSQL (Aiven) ke KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-connector">2.1 PostgreSQL Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-table-selector">2.2 DB Table Selector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-reader">2.3 DB Reader</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">2.4 Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilustrasi-perhitungan-statistik">3. Ilustrasi Perhitungan Statistik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min">3.1 Min</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max">3.2 Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">3.3 Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">3.4 Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#std-deviation">3.5 Std. Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">3.6 Skewness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">3.7 Kurtosis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-sum">3.8 Overall Sum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-missings">3.9 No. Missings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-nans">3.10 No. NaNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-oos">3.11 No. +oos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.12 No. -oos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">3.13 Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-count">3.14 Row Count</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -459,12 +496,16 @@
 </section>
 <section id="business-understanding">
 <h2>1. Business Understanding<a class="headerlink" href="#business-understanding" title="Link to this heading">#</a></h2>
+<section id="latar-belakang">
+<h3>1.1 Latar Belakang<a class="headerlink" href="#latar-belakang" title="Link to this heading">#</a></h3>
+<p>Pemantauan kualitas udara menjadi hal penting untuk dilakukan, mengingat polutan di atmosfer dapat bersumber dari berbagai aktivitas manusia (transportasi, industri, maupun pertanian) ataupun dari proses alami. Komposisi sumber polutan ini dapat berbeda-beda antarwilayah, bergantung pada karakteristik ekonomi dan geografis masing-masing daerah. Kabupaten Pamekasan sendiri memiliki karakteristik khas, seperti aktivitas pertanian dan peternakan sapi, produksi garam, perikanan, serta jalur lintas transportasi di Pulau Madura, yang berpotensi menjadi sumber emisi tersendiri bagi tiap jenis polutan. Analisis pada tugas ini difokuskan pada enam jenis polutan udara di wilayah Kabupaten Pamekasan dengan memanfaatkan data satelit Sentinel-5P selama periode pengamatan kurang lebih satu tahun.</p>
+</section>
 <section id="tujuan-analisis">
-<h3>1.1 Tujuan Analisis<a class="headerlink" href="#tujuan-analisis" title="Link to this heading">#</a></h3>
+<h3>1.2 Tujuan Analisis<a class="headerlink" href="#tujuan-analisis" title="Link to this heading">#</a></h3>
 <p>Menelusuri sumber-sumber utama polutan udara serta memetakan kondisi kualitas udara di wilayah Kabupaten Pamekasan, melalui pengambilan data satelit untuk enam parameter (CO, NO2, SO2, O3, HCHO, CH4), dilanjutkan dengan eksplorasi data (<em>data understanding</em>), dan divisualisasikan dalam bentuk <em>time series</em> untuk rentang waktu minimal satu tahun hingga 31 Agustus 2026.</p>
 </section>
 <section id="manfaat-analisis">
-<h3>1.2 Manfaat Analisis<a class="headerlink" href="#manfaat-analisis" title="Link to this heading">#</a></h3>
+<h3>1.3 Manfaat Analisis<a class="headerlink" href="#manfaat-analisis" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Memetakan pola naik-turunnya konsentrasi tiap gas pencemar di Pamekasan sepanjang periode pengamatan.</p></li>
 <li><p>Menduga kontribusi aktivitas lokal (pertanian, peternakan, produksi garam, perikanan, transportasi) terhadap tiap jenis polutan.</p></li>
@@ -474,7 +515,7 @@
 </ol>
 </section>
 <section id="dugaan-sumber-tiap-polutan">
-<h3>1.3 Dugaan Sumber Tiap Polutan<a class="headerlink" href="#dugaan-sumber-tiap-polutan" title="Link to this heading">#</a></h3>
+<h3>1.4 Dugaan Sumber Tiap Polutan<a class="headerlink" href="#dugaan-sumber-tiap-polutan" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Polutan</p></th>
@@ -512,7 +553,7 @@
 </div>
 </section>
 <section id="deskripsi-umum-data">
-<h3>1.4 Deskripsi Umum Data<a class="headerlink" href="#deskripsi-umum-data" title="Link to this heading">#</a></h3>
+<h3>1.5 Deskripsi Umum Data<a class="headerlink" href="#deskripsi-umum-data" title="Link to this heading">#</a></h3>
 <p>Data yang dipakai bersumber dari misi satelit <strong>Sentinel-5P (instrumen TROPOMI)</strong> yang dikelola oleh Copernicus/ESA, diakses melalui layanan <strong>openEO</strong> pada <strong>Copernicus Data Space Ecosystem (CDSE)</strong>. Data berupa nilai kerapatan kolom (<em>column density</em>) harian tiap gas pada resolusi grid tertentu, yang kemudian dirata-ratakan dalam batas wilayah analisa untuk membentuk satu nilai per hari per polutan.</p>
 </section>
 </section>
@@ -596,9 +637,8 @@
 </div>
 <p><img alt="image" src="https://hackmd.io/_uploads/Bk9v1xAwMl.png" /></p>
 </section>
-<section id="pengambilan-data-crawling">
-<h2>3. Pengambilan Data (Crawling)<a class="headerlink" href="#pengambilan-data-crawling" title="Link to this heading">#</a></h2>
-<!-- via openEO &mdash; Copernicus Data Space Ecosystem -->
+<section id="pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">
+<h2>3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem<a class="headerlink" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem" title="Link to this heading">#</a></h2>
 <section id="instalasi-autentikasi">
 <h3>3.1 Instalasi &amp; Autentikasi<a class="headerlink" href="#instalasi-autentikasi" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -608,116 +648,66 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openeo
-  Downloading openeo-0.51.0-py3-none-any.whl.metadata (8.9 kB)
-Requirement already satisfied: requests>=2.26.0 in /usr/local/lib/python3.13/dist-packages (from openeo) (2.32.4)
-Requirement already satisfied: urllib3>=1.9.0 in /usr/local/lib/python3.13/dist-packages (from openeo) (2.5.0)
-Requirement already satisfied: shapely>=1.6.4 in /usr/local/lib/python3.13/dist-packages (from openeo) (2.1.2)
-Requirement already satisfied: numpy>=1.17.0 in /usr/local/lib/python3.13/dist-packages (from openeo) (2.1.3)
-Collecting xarray<2025.01.2,>=0.12.3 (from openeo)
-  Downloading xarray-2025.1.1-py3-none-any.whl.metadata (11 kB)
-Requirement already satisfied: pandas<3.0.0,>0.20.0 in /usr/local/lib/python3.13/dist-packages (from openeo) (2.2.3)
-Collecting pystac>=1.5.0 (from openeo)
-  Downloading pystac-1.15.2-py3-none-any.whl.metadata (6.3 kB)
-Collecting deprecated>=1.2.12 (from openeo)
-  Downloading deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
-Requirement already satisfied: geopandas>=0.14 in /usr/local/lib/python3.13/dist-packages (from openeo) (1.1.4)
-Requirement already satisfied: wrapt<3,>=1.10 in /usr/local/lib/python3.13/dist-packages (from deprecated>=1.2.12->openeo) (2.3.0)
-Requirement already satisfied: pyogrio>=0.7.2 in /usr/local/lib/python3.13/dist-packages (from geopandas>=0.14->openeo) (0.13.0)
-Requirement already satisfied: packaging in /usr/local/lib/python3.13/dist-packages (from geopandas>=0.14->openeo) (26.3)
-Requirement already satisfied: pyproj>=3.5.0 in /usr/local/lib/python3.13/dist-packages (from geopandas>=0.14->openeo) (3.7.2)
-Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.13/dist-packages (from pandas<3.0.0,>0.20.0->openeo) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.13/dist-packages (from pandas<3.0.0,>0.20.0->openeo) (2025.2)
-Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.13/dist-packages (from pandas<3.0.0,>0.20.0->openeo) (2026.3)
-Collecting pystac-core<2,>=1.15.0 (from pystac>=1.5.0->openeo)
-  Downloading pystac_core-1.15.2-py3-none-any.whl.metadata (1.3 kB)
-Collecting pystac-ext-classification (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_classification-2.0.1-py3-none-any.whl.metadata (2.1 kB)
-Collecting pystac-ext-datacube (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_datacube-2.2.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-eo (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_eo-1.1.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-file (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_file-2.1.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-grid (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_grid-1.1.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-item-assets (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_item_assets-1.0.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-label (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_label-1.0.2-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-mgrs (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_mgrs-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-mlm (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_mlm-1.4.1-py3-none-any.whl.metadata (2.2 kB)
-Collecting pystac-ext-pointcloud (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_pointcloud-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-projection (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_projection-2.0.1-py3-none-any.whl.metadata (2.1 kB)
-Collecting pystac-ext-raster (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_raster-1.1.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-render (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_render-2.0.0-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-sar (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_sar-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-sat (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_sat-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-scientific (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_scientific-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-storage (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_storage-2.0.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-table (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_table-1.2.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-timestamps (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_timestamps-1.1.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-version (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_version-1.2.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pystac-ext-view (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_view-1.0.1-py3-none-any.whl.metadata (1.8 kB)
-Collecting pystac-ext-xarray-assets (from pystac>=1.5.0->openeo)
-  Downloading pystac_ext_xarray_assets-1.0.1-py3-none-any.whl.metadata (1.9 kB)
-Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.13/dist-packages (from requests>=2.26.0->openeo) (3.4.9)
-Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.13/dist-packages (from requests>=2.26.0->openeo) (3.19)
-Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.13/dist-packages (from requests>=2.26.0->openeo) (2026.7.22)
-Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.13/dist-packages (from python-dateutil>=2.8.2->pandas<3.0.0,>0.20.0->openeo) (1.17.0)
-Downloading openeo-0.51.0-py3-none-any.whl (349 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 349.2/349.2 kB 15.4 MB/s eta 0:00:00
-Downloading deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
-Downloading pystac-1.15.2-py3-none-any.whl (5.7 kB)
-Downloading xarray-2025.1.1-py3-none-any.whl (1.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 29.0 MB/s eta 0:00:00
-Downloading pystac_core-1.15.2-py3-none-any.whl (117 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.3/117.3 kB 6.6 MB/s eta 0:00:00
-Downloading pystac_ext_classification-2.0.1-py3-none-any.whl (7.4 kB)
-Downloading pystac_ext_datacube-2.2.1-py3-none-any.whl (7.1 kB)
-Downloading pystac_ext_eo-1.1.1-py3-none-any.whl (7.7 kB)
-Downloading pystac_ext_file-2.1.1-py3-none-any.whl (5.8 kB)
-Downloading pystac_ext_grid-1.1.1-py3-none-any.whl (3.6 kB)
-Downloading pystac_ext_item_assets-1.0.1-py3-none-any.whl (3.7 kB)
-Downloading pystac_ext_label-1.0.2-py3-none-any.whl (8.2 kB)
-Downloading pystac_ext_mgrs-1.0.1-py3-none-any.whl (4.1 kB)
-Downloading pystac_ext_mlm-1.4.1-py3-none-any.whl (13 kB)
-Downloading pystac_ext_pointcloud-1.0.1-py3-none-any.whl (6.5 kB)
-Downloading pystac_ext_projection-2.0.1-py3-none-any.whl (7.4 kB)
-Downloading pystac_ext_raster-1.1.1-py3-none-any.whl (6.8 kB)
-Downloading pystac_ext_render-2.0.0-py3-none-any.whl (5.0 kB)
-Downloading pystac_ext_sar-1.0.1-py3-none-any.whl (6.5 kB)
-Downloading pystac_ext_sat-1.0.1-py3-none-any.whl (4.9 kB)
-Downloading pystac_ext_scientific-1.0.1-py3-none-any.whl (5.5 kB)
-Downloading pystac_ext_storage-2.0.1-py3-none-any.whl (7.6 kB)
-Downloading pystac_ext_table-1.2.1-py3-none-any.whl (4.7 kB)
-Downloading pystac_ext_timestamps-1.1.1-py3-none-any.whl (4.6 kB)
-Downloading pystac_ext_version-1.2.1-py3-none-any.whl (5.8 kB)
-Downloading pystac_ext_view-1.0.1-py3-none-any.whl (4.8 kB)
-Downloading pystac_ext_xarray_assets-1.0.1-py3-none-any.whl (3.9 kB)
-Installing collected packages: deprecated, pystac-core, xarray, pystac-ext-xarray-assets, pystac-ext-view, pystac-ext-version, pystac-ext-timestamps, pystac-ext-table, pystac-ext-storage, pystac-ext-scientific, pystac-ext-sat, pystac-ext-sar, pystac-ext-render, pystac-ext-raster, pystac-ext-projection, pystac-ext-pointcloud, pystac-ext-mgrs, pystac-ext-label, pystac-ext-item-assets, pystac-ext-grid, pystac-ext-file, pystac-ext-datacube, pystac-ext-eo, pystac-ext-classification, pystac-ext-mlm, pystac, openeo
-  Attempting uninstall: xarray
-    Found existing installation: xarray 2025.12.0
-    Uninstalling xarray-2025.12.0:
-      Successfully uninstalled xarray-2025.12.0
-Successfully installed deprecated-1.3.1 openeo-0.51.0 pystac-1.15.2 pystac-core-1.15.2 pystac-ext-classification-2.0.1 pystac-ext-datacube-2.2.1 pystac-ext-eo-1.1.1 pystac-ext-file-2.1.1 pystac-ext-grid-1.1.1 pystac-ext-item-assets-1.0.1 pystac-ext-label-1.0.2 pystac-ext-mgrs-1.0.1 pystac-ext-mlm-1.4.1 pystac-ext-pointcloud-1.0.1 pystac-ext-projection-2.0.1 pystac-ext-raster-1.1.1 pystac-ext-render-2.0.0 pystac-ext-sar-1.0.1 pystac-ext-sat-1.0.1 pystac-ext-scientific-1.0.1 pystac-ext-storage-2.0.1 pystac-ext-table-1.2.1 pystac-ext-timestamps-1.1.1 pystac-ext-version-1.2.1 pystac-ext-view-1.0.1 pystac-ext-xarray-assets-1.0.1 xarray-2025.1.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: openeo in /usr/local/python/3.12.1/lib/python3.12/site-packages (0.51.0)
+Requirement already satisfied: requests&gt;=2.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.32.5)
+Requirement already satisfied: urllib3&gt;=1.9.0 in /home/codespace/.local/lib/python3.12/site-packages (from openeo) (2.6.3)
+Requirement already satisfied: shapely&gt;=1.6.4 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.1.2)
+Requirement already satisfied: numpy&gt;=1.17.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.5.2)
+Requirement already satisfied: xarray&lt;2025.01.2,&gt;=0.12.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2025.1.1)
+Requirement already satisfied: pandas&lt;3.0.0,&gt;0.20.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (2.3.3)
+Requirement already satisfied: pystac&gt;=1.5.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.15.2)
+Requirement already satisfied: deprecated&gt;=1.2.12 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.3.1)
+Requirement already satisfied: geopandas&gt;=0.14 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from openeo) (1.1.4)
 </pre></div>
 </div>
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2026.3.post1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2025.3)
+Requirement already satisfied: packaging&gt;=23.2 in /home/codespace/.local/lib/python3.12/site-packages (from xarray&lt;2025.01.2,&gt;=0.12.3-&gt;openeo) (26.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt&lt;3,&gt;=1.10 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from deprecated&gt;=1.2.12-&gt;openeo) (2.4.0)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from geopandas&gt;=0.14-&gt;openeo) (0.13.0)
+Requirement already satisfied: pyproj&gt;=3.5.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from geopandas&gt;=0.14-&gt;openeo) (3.7.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: certifi in /home/codespace/.local/lib/python3.12/site-packages (from pyogrio&gt;=0.7.2-&gt;geopandas&gt;=0.14-&gt;openeo) (2026.2.25)
+Requirement already satisfied: pystac-core&lt;2,&gt;=1.15.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.15.2)
+Requirement already satisfied: pystac-ext-classification in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.0.1)
+Requirement already satisfied: pystac-ext-datacube in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.2.1)
+Requirement already satisfied: pystac-ext-eo in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.1.1)
+Requirement already satisfied: pystac-ext-file in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.1.1)
+Requirement already satisfied: pystac-ext-grid in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.1.1)
+Requirement already satisfied: pystac-ext-item-assets in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-label in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.2)
+Requirement already satisfied: pystac-ext-mgrs in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-mlm in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.4.1)
+Requirement already satisfied: pystac-ext-pointcloud in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-projection in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pystac-ext-raster in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.1.1)
+Requirement already satisfied: pystac-ext-render in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.0.0)
+Requirement already satisfied: pystac-ext-sar in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-sat in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-scientific in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-storage in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (2.0.1)
+Requirement already satisfied: pystac-ext-table in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.2.1)
+Requirement already satisfied: pystac-ext-timestamps in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.1.1)
+Requirement already satisfied: pystac-ext-version in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.2.1)
+Requirement already satisfied: pystac-ext-view in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+Requirement already satisfied: pystac-ext-xarray-assets in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pystac&gt;=1.5.0-&gt;openeo) (1.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (1.17.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.5)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.11)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">26.0.1</span> -&gt; <span class=" -Color -Color-Green">26.2.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -728,34 +718,64 @@ Successfully installed deprecated-1.3.1 openeo-0.51.0 pystac-1.15.2 pystac-core-
 </pre></div>
 </div>
 </div>
-
-
 <div class="cell_output docutils container">
+<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=FDLV-KTUN" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=FDLV-KTUN" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=FDLV-KTUN</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=FDLV-KTUN');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html"><code>[##################################---]</code> ⌛ Authorization pending</div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">openeo</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">koneksi</span> <span class="o">=</span> <span class="n">openeo</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;openeo.dataspace.copernicus.eu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">authenticate_oidc</span><span class="p">()</span>
 
-<div class="output stream highlight-myst-ansi notranslate">
-  <div class="highlight">
-    <pre><span></span>Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=QDFH-JUZC" target="_blank">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=QDFH-JUZC</a> 📋 to authenticate.
-✅ Authorized successfully
-Authenticated using device code flow.</pre>
-  </div>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/connection.py:697,</span> in <span class="ni">Connection.authenticate_oidc</span><span class="nt">(self, provider_id, client_id, client_secret, store_refresh_token, use_pkce, display, max_poll_time)</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span> <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Trying device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span> <span class="n">authenticator</span> <span class="o">=</span> <span class="n">OidcDeviceAuthenticator</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span>     <span class="n">client_info</span><span class="o">=</span><span class="n">client_info</span><span class="p">,</span> <span class="n">use_pkce</span><span class="o">=</span><span class="n">use_pkce</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">max_poll_time</span><span class="o">=</span><span class="n">max_poll_time</span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">697</span> <span class="n">con</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate_oidc</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="n">authenticator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span>     <span class="n">provider_id</span><span class="o">=</span><span class="n">provider_id</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span>     <span class="n">store_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>     <span class="c1"># TODO: expose `auto_renew_from_refresh_token` directly as option instead of reusing `store_refresh_token` arg?</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>     <span class="n">auto_renew_from_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authenticated using device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="k">return</span> <span class="n">con</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/connection.py:413,</span> in <span class="ni">Connection._authenticate_oidc</span><span class="nt">(self, authenticator, provider_id, store_refresh_token, auto_renew_from_refresh_token, fallback_refresh_token, oidc_auth_renewer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span><span class="sd"> Authenticate through OIDC and set up bearer token (based on OIDC access_token) for further requests.</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="n">request_refresh_token</span> <span class="o">=</span> <span class="n">store_refresh_token</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">oidc_auth_renewer</span> <span class="ow">and</span> <span class="n">auto_renew_from_refresh_token</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">413</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">authenticator</span><span class="o">.</span><span class="n">get_tokens</span><span class="p">(</span><span class="n">request_refresh_token</span><span class="o">=</span><span class="n">request_refresh_token</span><span class="p">)</span>
+<span class="nn">    414 _log.info(&quot;Obtained tokens: {t}&quot;.format(t=[k for k, v</span> in <span class="ni">tokens._asdict().items</span><span class="nt">() if v]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">tokens</span><span class="o">.</span><span class="n">refresh_token</span> <span class="ow">or</span> <span class="n">fallback_refresh_token</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/openeo/rest/auth/oidc.py:928,</span> in <span class="ni">OidcDeviceAuthenticator.get_tokens</span><span class="nt">(self, request_refresh_token)</span>
+<span class="g g-Whitespace">    </span><span class="mi">926</span> <span class="k">while</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_poll_time</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="n">poll_ui</span><span class="o">.</span><span class="n">show_progress</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">928</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="k">if</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">next_poll</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>         <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>             <span class="sa">f</span><span class="s2">&quot;Doing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grant_type</span><span class="si">!r}</span><span class="s2"> token request </span><span class="si">{</span><span class="n">token_endpoint</span><span class="si">!r}</span><span class="s2"> with post data fields </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">post_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">!r}</span><span class="s2"> (client_id </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>         <span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
 </div>
-
-  
 </div>
 </div>
 </section>
 <section id="mengunduh-enam-parameter-polutan">
 <h3>3.2 Mengunduh Enam Parameter Polutan<a class="headerlink" href="#mengunduh-enam-parameter-polutan" title="Link to this heading">#</a></h3>
-<p>Rentang waktu ditetapkan <strong>1 tahun penuh</strong>, dari <strong>31 Agustus 2025</strong> sampai <strong>31 Agustus 2026</strong>, memenuhi ketentuan tugas (data terkini, minimal satu tahun sampai 31 Agustus 2026). Karena koleksi <code class="docutils literal notranslate"><span class="pre">SENTINEL_5P_L2</span></code> pada openEO hanya mengizinkan satu <em>band</em> per permintaan, pengambilan data dilakukan bergiliran untuk tiap polutan menggunakan perulangan, dan masing-masing hasil disimpan sebagai berkas NetCDF (<code class="docutils literal notranslate"><span class="pre">.nc</span></code>) terpisah.</p>
+<p>Rentang waktu ditetapkan <strong>1 tahun penuh</strong>, dari <strong>31 Agustus 2025</strong> sampai <strong>31 Agustus 2026</strong>, memenuhi ketentuan tugas (data terkini, minimal satu tahun sampai 31 Agustus 2026). Perlu diperhatikan, parameter akhir (<code class="docutils literal notranslate"><span class="pre">tanggal_akhir</span></code>) pada <code class="docutils literal notranslate"><span class="pre">temporal_extent</span></code> bersifat <em>exclusive</em> (tanggal itu sendiri tidak ikut disertakan), sehingga nilainya ditetapkan <strong>1 September 2026</strong>, bukan 31 Agustus 2026 — dengan begitu, data pada tanggal 31 Agustus 2026 tetap ikut terambil sepenuhnya. Karena koleksi <code class="docutils literal notranslate"><span class="pre">SENTINEL_5P_L2</span></code> pada openEO hanya mengizinkan satu <em>band</em> per permintaan, pengambilan data dilakukan bergiliran untuk tiap polutan menggunakan perulangan, dan masing-masing hasil disimpan sebagai berkas NetCDF (<code class="docutils literal notranslate"><span class="pre">.nc</span></code>) terpisah.</p>
 <blockquote>
-<div><p><strong>Catatan:</strong> jika notebook dijalankan sebelum tanggal 31 Agustus 2026, cakupan data hanya akan sampai pada tanggal perekaman satelit terakhir yang tersedia saat itu. Jalankan ulang mendekati/ setelah tanggal tersebut untuk mendapatkan rentang data yang benar-benar penuh satu tahun.</p>
+<div><p><strong>Catatan:</strong> jika notebook dijalankan sebelum tanggal 31 Agustus 2026, cakupan data hanya akan sampai pada tanggal perekaman satelit terakhir yang tersedia saat itu. Jalankan ulang mendekati/setelah tanggal tersebut untuk mendapatkan rentang data yang benar-benar penuh satu tahun.</p>
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daftar_polutan</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CO&quot;</span><span class="p">,</span> <span class="s2">&quot;NO2&quot;</span><span class="p">,</span> <span class="s2">&quot;SO2&quot;</span><span class="p">,</span> <span class="s2">&quot;O3&quot;</span><span class="p">,</span> <span class="s2">&quot;HCHO&quot;</span><span class="p">,</span> <span class="s2">&quot;CH4&quot;</span><span class="p">]</span>
 
 <span class="n">tanggal_mulai</span> <span class="o">=</span> <span class="s2">&quot;2025-08-31&quot;</span>
-<span class="n">tanggal_akhir</span> <span class="o">=</span> <span class="s2">&quot;2026-08-31&quot;</span>
+<span class="n">tanggal_akhir</span> <span class="o">=</span> <span class="s2">&quot;2026-09-01&quot;</span>
 
 <span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
     <span class="n">kubus_data</span> <span class="o">=</span> <span class="n">koneksi</span><span class="o">.</span><span class="n">load_collection</span><span class="p">(</span>
@@ -771,87 +791,91 @@ Authenticated using device code flow.</pre>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:00 Job &#39;j-26083014471149e6890909b854393195&#39;: send &#39;start&#39;
-0:00:03 Job &#39;j-26083014471149e6890909b854393195&#39;: created (progress 0%)
-0:00:08 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
-0:00:14 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
-0:00:22 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
-0:00:32 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
-0:00:45 Job &#39;j-26083014471149e6890909b854393195&#39;: queued (progress 0%)
-0:01:00 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:01:19 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:01:43 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:02:13 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:02:50 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:03:37 Job &#39;j-26083014471149e6890909b854393195&#39;: running (progress N/A)
-0:04:35 Job &#39;j-26083014471149e6890909b854393195&#39;: finished (progress 100%)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0:00:00 Job &#39;j-26090515245946588f0da430950e23fc&#39;: send &#39;start&#39;
+0:00:03 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:00:09 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:00:15 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:00:24 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:00:34 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:00:46 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:01:02 Job &#39;j-26090515245946588f0da430950e23fc&#39;: queued (progress 0%)
+0:01:21 Job &#39;j-26090515245946588f0da430950e23fc&#39;: running (progress N/A)
+0:01:46 Job &#39;j-26090515245946588f0da430950e23fc&#39;: running (progress N/A)
+0:02:16 Job &#39;j-26090515245946588f0da430950e23fc&#39;: running (progress N/A)
+0:02:53 Job &#39;j-26090515245946588f0da430950e23fc&#39;: running (progress N/A)
+0:03:40 Job &#39;j-26090515245946588f0da430950e23fc&#39;: finished (progress 100%)
 Data CO selesai diunduh -&gt; CO_pamekasan.nc
-0:00:00 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: send &#39;start&#39;
-0:00:02 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:07 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:13 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:21 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:31 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:43 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:00:59 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:01:18 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: queued (progress 0%)
-0:01:42 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
-0:02:12 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
-0:02:49 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: running (progress N/A)
-0:03:36 Job &#39;j-26083014514946f4ab8629d9368225bf&#39;: finished (progress 100%)
+0:00:00 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: send &#39;start&#39;
+0:00:04 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:00:09 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:00:16 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:00:24 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:00:34 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:00:47 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:01:02 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: queued (progress 0%)
+0:01:22 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: running (progress N/A)
+0:01:46 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: running (progress N/A)
+0:02:16 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: running (progress N/A)
+0:02:54 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: running (progress N/A)
+0:03:41 Job &#39;j-2609051528504730a4d307a551ece5cf&#39;: finished (progress 100%)
 Data NO2 selesai diunduh -&gt; NO2_pamekasan.nc
-0:00:00 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: send &#39;start&#39;
-0:00:02 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
-0:00:07 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
-0:00:13 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
-0:00:21 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
-0:00:31 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: queued (progress 0%)
-0:00:43 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
-0:00:59 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
-0:01:18 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
-0:01:42 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
-0:02:12 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: running (progress N/A)
-0:02:49 Job &#39;j-26083014552849f3bc19d30b94647f52&#39;: finished (progress 100%)
+0:00:00 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: send &#39;start&#39;
+0:00:04 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: created (progress 0%)
+0:00:09 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: queued (progress 0%)
+0:00:16 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: queued (progress 0%)
+0:00:24 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: queued (progress 0%)
+0:00:34 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:00:46 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:01:02 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:01:21 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:01:46 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:02:16 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:02:53 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:03:41 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: running (progress N/A)
+0:04:39 Job &#39;j-2609051532404b9891d96940261d8e1c&#39;: finished (progress 100%)
 Data SO2 selesai diunduh -&gt; SO2_pamekasan.nc
-0:00:00 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: send &#39;start&#39;
-0:00:02 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:07 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:13 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:21 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:31 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:43 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: queued (progress 0%)
-0:00:59 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
-0:01:18 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
-0:01:42 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
-0:02:12 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
-0:02:49 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: running (progress N/A)
-0:03:36 Job &#39;j-260830145819493096710b9fe8dfa257&#39;: finished (progress 100%)
+0:00:00 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: send &#39;start&#39;
+0:00:03 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: queued (progress 0%)
+0:00:09 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: queued (progress 0%)
+0:00:15 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: queued (progress 0%)
+0:00:23 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: queued (progress 0%)
+0:00:34 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: queued (progress 0%)
+0:00:46 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:01:02 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:01:21 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:01:45 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:02:15 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:02:53 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:03:40 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: running (progress N/A)
+0:04:39 Job &#39;j-2609051537294165aee947d6fbcce474&#39;: finished (progress 100%)
 Data O3 selesai diunduh -&gt; O3_pamekasan.nc
-0:00:00 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: send &#39;start&#39;
-0:00:02 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: created (progress 0%)
-0:00:07 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:00:13 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:00:21 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:00:31 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:00:44 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:00:59 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: queued (progress 0%)
-0:01:18 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
-0:01:42 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
-0:02:12 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: running (progress N/A)
-0:02:50 Job &#39;j-26083015015843ed8d0eea5d14dbbc45&#39;: finished (progress 100%)
+0:00:00 Job &#39;j-260905154217435bb298b766bf055f55&#39;: send &#39;start&#39;
+0:00:04 Job &#39;j-260905154217435bb298b766bf055f55&#39;: created (progress 0%)
+0:00:09 Job &#39;j-260905154217435bb298b766bf055f55&#39;: queued (progress 0%)
+0:00:16 Job &#39;j-260905154217435bb298b766bf055f55&#39;: queued (progress 0%)
+0:00:25 Job &#39;j-260905154217435bb298b766bf055f55&#39;: queued (progress 0%)
+0:00:35 Job &#39;j-260905154217435bb298b766bf055f55&#39;: queued (progress 0%)
+0:00:47 Job &#39;j-260905154217435bb298b766bf055f55&#39;: queued (progress 0%)
+0:01:03 Job &#39;j-260905154217435bb298b766bf055f55&#39;: running (progress N/A)
+0:01:22 Job &#39;j-260905154217435bb298b766bf055f55&#39;: running (progress N/A)
+0:01:46 Job &#39;j-260905154217435bb298b766bf055f55&#39;: running (progress N/A)
+0:02:16 Job &#39;j-260905154217435bb298b766bf055f55&#39;: running (progress N/A)
+0:02:54 Job &#39;j-260905154217435bb298b766bf055f55&#39;: running (progress N/A)
+0:03:41 Job &#39;j-260905154217435bb298b766bf055f55&#39;: finished (progress 100%)
 Data HCHO selesai diunduh -&gt; HCHO_pamekasan.nc
-0:00:00 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: send &#39;start&#39;
-0:00:03 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
-0:00:08 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
-0:00:14 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: queued (progress 0%)
-0:00:22 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:00:32 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:00:44 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:01:00 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:01:19 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:01:43 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:02:13 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: running (progress N/A)
-0:02:50 Job &#39;j-26083015045043a387556b2b17cb5680&#39;: finished (progress 100%)
+0:00:00 Job &#39;j-2609051546094935b397233aeb85824f&#39;: send &#39;start&#39;
+0:00:04 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:00:09 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:00:16 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:00:24 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:00:34 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:00:47 Job &#39;j-2609051546094935b397233aeb85824f&#39;: queued (progress 0%)
+0:01:02 Job &#39;j-2609051546094935b397233aeb85824f&#39;: running (progress N/A)
+0:01:22 Job &#39;j-2609051546094935b397233aeb85824f&#39;: running (progress N/A)
+0:01:46 Job &#39;j-2609051546094935b397233aeb85824f&#39;: running (progress N/A)
+0:02:16 Job &#39;j-2609051546094935b397233aeb85824f&#39;: running (progress N/A)
+0:02:54 Job &#39;j-2609051546094935b397233aeb85824f&#39;: running (progress N/A)
+0:03:41 Job &#39;j-2609051546094935b397233aeb85824f&#39;: finished (progress 100%)
 Data CH4 selesai diunduh -&gt; CH4_pamekasan.nc
 </pre></div>
 </div>
@@ -861,7 +885,9 @@ Data CH4 selesai diunduh -&gt; CH4_pamekasan.nc
 Selain melalui terminal, proses pengambilan data juga dapat dipantau melalui halaman OpenEO Editor:</p>
 <p><a class="reference external" href="https://editor.openeo.org/?server=https%3A%2F%2Fopeneo.dataspace.copernicus.eu%2Fopeneo%2F1.2">openEO Web Editor</a></p>
 <p>Pada halaman tersebut akan ditampilkan daftar job yang pernah dijalankan, termasuk nama dataset, status proses, waktu eksekusi, serta file hasil yang dapat diunduh setelah proses selesai. Dengan demikian, pengguna dapat memantau perkembangan pengambilan data secara langsung hingga status berubah menjadi finished.</p>
-<p><img alt="image" src="https://hackmd.io/_uploads/S1l9eg0Pzl.png" /></p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/Sy7t0TKuGx.png" /></p>
+</div></blockquote>
 </section>
 </section>
 <section id="data-understanding">
@@ -883,9 +909,9 @@ Collecting cftime (from netCDF4)
 Requirement already satisfied: certifi in /usr/local/lib/python3.13/dist-packages (from netCDF4) (2026.7.22)
 Requirement already satisfied: numpy&gt;=1.21.2 in /usr/local/lib/python3.13/dist-packages (from netCDF4) (2.1.3)
 Downloading netcdf4-1.7.4-cp311-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (10.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">63.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">22.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading cftime-1.6.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">54.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">51.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hInstalling collected packages: cftime, netCDF4
 Successfully installed cftime-1.6.5 netCDF4-1.7.4
 </pre></div>
@@ -949,21 +975,25 @@ Successfully installed cftime-1.6.5 netCDF4-1.7.4
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CO: 365 baris berhasil dibaca
-NO2: 363 baris berhasil dibaca
-SO2: 362 baris berhasil dibaca
-O3: 362 baris berhasil dibaca
-HCHO: 362 baris berhasil dibaca
-CH4: 213 baris berhasil dibaca
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CO: 366 baris berhasil dibaca
+NO2: 364 baris berhasil dibaca
+SO2: 353 baris berhasil dibaca
+O3: 363 baris berhasil dibaca
+HCHO: 353 baris berhasil dibaca
+CH4: 215 baris berhasil dibaca
 
-Berhasil menyimpan 365 baris ke data_polutan_pamekasan.csv
+Berhasil menyimpan 366 baris ke data_polutan_pamekasan.csv
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="image" src="https://hackmd.io/_uploads/rJyhR6WOGg.png" /></p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/rJyhR6WOGg.png" /></p>
+</div></blockquote>
 <p>Kemudian di download untuk melihat hasil pengambilan data</p>
-<p><img alt="image" src="https://hackmd.io/_uploads/By1_ApbOMl.png" /></p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/By1_ApbOMl.png" /></p>
+</div></blockquote>
 </section>
 <section id="eksplorasi-struktur-isi-data">
 <h3>4.2 Eksplorasi Struktur &amp; Isi Data<a class="headerlink" href="#eksplorasi-struktur-isi-data" title="Link to this heading">#</a></h3>
@@ -978,8 +1008,39 @@ Berhasil menyimpan 365 baris ke data_polutan_pamekasan.csv
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Nama Kolom ===&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Struktur Data Polutan Pamekasan ===
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 366 entries, 0 to 365
+Data columns (total 7 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   tanggal  366 non-null    datetime64[ns]
+ 1   CO       253 non-null    float64       
+ 2   NO2      280 non-null    float64       
+ 3   SO2      301 non-null    float64       
+ 4   O3       362 non-null    float64       
+ 5   HCHO     309 non-null    float64       
+ 6   CH4      93 non-null     float64       
+dtypes: datetime64[ns](1), float64(6)
+memory usage: 20.1 KB
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Lima Data Teratas ===&quot;</span><span class="p">)</span>
+=== Ukuran Dataset ===
+Jumlah baris : 366
+Jumlah kolom : 7
+
+=== Nama Kolom ===
+[&#39;tanggal&#39;, &#39;CO&#39;, &#39;NO2&#39;, &#39;SO2&#39;, &#39;O3&#39;, &#39;HCHO&#39;, &#39;CH4&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Lima Data Teratas ===&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Lima Data Terbawah ===&quot;</span><span class="p">)</span>
@@ -988,34 +1049,11 @@ Berhasil menyimpan 365 baris ke data_polutan_pamekasan.csv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Struktur Data Polutan Pamekasan ===
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 365 entries, 0 to 364
-Data columns (total 7 columns):
- #   Column   Non-Null Count  Dtype         
----  ------   --------------  -----         
- 0   tanggal  365 non-null    datetime64[ns]
- 1   CO       252 non-null    float64       
- 2   NO2      279 non-null    float64       
- 3   SO2      305 non-null    float64       
- 4   O3       361 non-null    float64       
- 5   HCHO     313 non-null    float64       
- 6   CH4      92 non-null     float64       
-dtypes: datetime64[ns](1), float64(6)
-memory usage: 20.1 KB
-
-=== Ukuran Dataset ===
-Jumlah baris : 365
-Jumlah kolom : 7
-
-=== Nama Kolom ===
-[&#39;tanggal&#39;, &#39;CO&#39;, &#39;NO2&#39;, &#39;SO2&#39;, &#39;O3&#39;, &#39;HCHO&#39;, &#39;CH4&#39;]
-
-=== Lima Data Teratas ===
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Lima Data Teratas ===
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-9632d4e6-f5ae-43d5-b81a-650070aba657" class="colab-df-container">
+  <div id="df-f33d25dd-ebba-4f60-b08c-a8600340dc3b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1100,7 +1138,7 @@ Jumlah kolom : 7
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9632d4e6-f5ae-43d5-b81a-650070aba657')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f33d25dd-ebba-4f60-b08c-a8600340dc3b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1152,12 +1190,12 @@ Jumlah kolom : 7
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9632d4e6-f5ae-43d5-b81a-650070aba657 button.colab-df-convert');
+        document.querySelector('#df-f33d25dd-ebba-4f60-b08c-a8600340dc3b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9632d4e6-f5ae-43d5-b81a-650070aba657');
+        const element = document.querySelector('#df-f33d25dd-ebba-4f60-b08c-a8600340dc3b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1183,7 +1221,7 @@ Jumlah kolom : 7
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-143bde17-97c8-4810-adf0-71ca03bb1aee" class="colab-df-container">
+  <div id="df-4131c4e1-2fc4-4ac9-b42d-fc52f9438094" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1213,16 +1251,6 @@ Jumlah kolom : 7
   </thead>
   <tbody>
     <tr>
-      <th>360</th>
-      <td>2026-08-26</td>
-      <td>0.027989</td>
-      <td>0.000020</td>
-      <td>0.000111</td>
-      <td>0.118790</td>
-      <td>0.000116</td>
-      <td>1907.810724</td>
-    </tr>
-    <tr>
       <th>361</th>
       <td>2026-08-27</td>
       <td>0.029515</td>
@@ -1247,9 +1275,9 @@ Jumlah kolom : 7
       <td>2026-08-29</td>
       <td>NaN</td>
       <td>0.000013</td>
-      <td>-0.000028</td>
-      <td>0.116368</td>
-      <td>0.000025</td>
+      <td>0.000089</td>
+      <td>0.116974</td>
+      <td>0.000035</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -1257,10 +1285,20 @@ Jumlah kolom : 7
       <td>2026-08-30</td>
       <td>0.030614</td>
       <td>0.000014</td>
-      <td>0.000010</td>
-      <td>0.114166</td>
-      <td>0.000115</td>
-      <td>1884.014160</td>
+      <td>0.000001</td>
+      <td>0.115372</td>
+      <td>0.000121</td>
+      <td>1875.143663</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>2026-08-31</td>
+      <td>0.030714</td>
+      <td>0.000013</td>
+      <td>0.000042</td>
+      <td>0.115803</td>
+      <td>0.000075</td>
+      <td>1901.848958</td>
     </tr>
   </tbody>
 </table>
@@ -1268,7 +1306,7 @@ Jumlah kolom : 7
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-143bde17-97c8-4810-adf0-71ca03bb1aee')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4131c4e1-2fc4-4ac9-b42d-fc52f9438094')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1320,12 +1358,12 @@ Jumlah kolom : 7
 
     <script>
       const buttonEl =
-        document.querySelector('#df-143bde17-97c8-4810-adf0-71ca03bb1aee button.colab-df-convert');
+        document.querySelector('#df-4131c4e1-2fc4-4ac9-b42d-fc52f9438094 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-143bde17-97c8-4810-adf0-71ca03bb1aee');
+        const element = document.querySelector('#df-4131c4e1-2fc4-4ac9-b42d-fc52f9438094');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1348,6 +1386,23 @@ Jumlah kolom : 7
     </div>
   </div>
 </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cek tanggal mana saja yang tidak ada di data (hilang total di semua polutan)</span>
+<span class="n">semua_tanggal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">tanggal_hilang</span> <span class="o">=</span> <span class="n">semua_tanggal</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah tanggal hilang: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tanggal_hilang</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tanggal_hilang</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah tanggal hilang: 0
+DatetimeIndex([], dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="penjelasan-tiap-fitur">
@@ -1379,19 +1434,19 @@ Jumlah kolom : 7
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polutan Total Baris   Jumlah Kosong   Persentase
-CO      365           113             30.96%
-NO2     365           86              23.56%
-SO2     365           60              16.44%
-O3      365           4               1.10%
-HCHO    365           52              14.25%
-CH4     365           273             74.79%
+CO      366           113             30.87%
+NO2     366           86              23.50%
+SO2     366           65              17.76%
+O3      366           4               1.09%
+HCHO    366           57              15.57%
+CH4     366           273             74.59%
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">
-<h3>4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)<a class="headerlink" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier" title="Link to this heading">#</a></h3>
+<h3>4.4 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)<a class="headerlink" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier" title="Link to this heading">#</a></h3>
 <p>Statistik deskriptif serta deteksi outlier dengan metode <strong>IQR (Interquartile Range)</strong> digunakan untuk melihat sebaran nilai tiap gas dan mengidentifikasi kejanggalan data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1430,7 +1485,7 @@ CH4     365           273             74.79%
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0d9c19bb-90e7-40f2-9918-b4d05f31e100" class="colab-df-container">
+  <div id="df-28b89589-8454-4a1d-9e5d-7e5524517596" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1468,14 +1523,14 @@ CH4     365           273             74.79%
       <td>CO</td>
       <td>0.019084</td>
       <td>0.036531</td>
-      <td>0.027883</td>
-      <td>0.002652</td>
-      <td>0.026000</td>
-      <td>0.029433</td>
-      <td>0.003433</td>
-      <td>2.084954e-02</td>
-      <td>0.034583</td>
-      <td>4</td>
+      <td>0.027894</td>
+      <td>0.002653</td>
+      <td>0.026004</td>
+      <td>0.029489</td>
+      <td>0.003484</td>
+      <td>2.077787e-02</td>
+      <td>0.034715</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1487,7 +1542,7 @@ CH4     365           273             74.79%
       <td>0.000012</td>
       <td>0.000020</td>
       <td>0.000008</td>
-      <td>5.824531e-07</td>
+      <td>5.328524e-07</td>
       <td>0.000032</td>
       <td>8</td>
     </tr>
@@ -1498,11 +1553,11 @@ CH4     365           273             74.79%
       <td>0.000415</td>
       <td>0.000029</td>
       <td>0.000127</td>
-      <td>-0.000022</td>
+      <td>-0.000021</td>
       <td>0.000081</td>
-      <td>0.000103</td>
-      <td>-1.770098e-04</td>
-      <td>0.000236</td>
+      <td>0.000102</td>
+      <td>-1.742939e-04</td>
+      <td>0.000234</td>
       <td>24</td>
     </tr>
     <tr>
@@ -1510,13 +1565,13 @@ CH4     365           273             74.79%
       <td>O3</td>
       <td>0.110342</td>
       <td>0.122254</td>
-      <td>0.115667</td>
-      <td>0.002227</td>
+      <td>0.115672</td>
+      <td>0.002224</td>
       <td>0.114128</td>
-      <td>0.116939</td>
-      <td>0.002811</td>
-      <td>1.099111e-01</td>
-      <td>0.121155</td>
+      <td>0.116965</td>
+      <td>0.002837</td>
+      <td>1.098719e-01</td>
+      <td>0.121221</td>
       <td>5</td>
     </tr>
     <tr>
@@ -1524,27 +1579,27 @@ CH4     365           273             74.79%
       <td>HCHO</td>
       <td>-0.000324</td>
       <td>0.000454</td>
-      <td>0.000126</td>
-      <td>0.000076</td>
+      <td>0.000125</td>
+      <td>0.000075</td>
       <td>0.000081</td>
-      <td>0.000158</td>
-      <td>0.000077</td>
-      <td>-3.374532e-05</td>
-      <td>0.000273</td>
-      <td>16</td>
+      <td>0.000152</td>
+      <td>0.000071</td>
+      <td>-2.484628e-05</td>
+      <td>0.000258</td>
+      <td>18</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CH4</td>
       <td>1715.889160</td>
       <td>1921.731027</td>
-      <td>1880.284557</td>
-      <td>33.475818</td>
-      <td>1866.786540</td>
-      <td>1900.927646</td>
-      <td>34.141107</td>
-      <td>1.815575e+03</td>
-      <td>1952.139306</td>
+      <td>1880.421050</td>
+      <td>33.370967</td>
+      <td>1866.813477</td>
+      <td>1901.175987</td>
+      <td>34.362510</td>
+      <td>1.815270e+03</td>
+      <td>1952.719752</td>
       <td>4</td>
     </tr>
   </tbody>
@@ -1553,7 +1608,7 @@ CH4     365           273             74.79%
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0d9c19bb-90e7-40f2-9918-b4d05f31e100')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-28b89589-8454-4a1d-9e5d-7e5524517596')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1605,12 +1660,12 @@ CH4     365           273             74.79%
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0d9c19bb-90e7-40f2-9918-b4d05f31e100 button.colab-df-convert');
+        document.querySelector('#df-28b89589-8454-4a1d-9e5d-7e5524517596 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0d9c19bb-90e7-40f2-9918-b4d05f31e100');
+        const element = document.querySelector('#df-28b89589-8454-4a1d-9e5d-7e5524517596');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1630,7 +1685,7 @@ CH4     365           273             74.79%
   </div>
 
 
-  <div id="id_18586244-58b3-48f5-8f66-5d4c597ed040">
+  <div id="id_92d655e2-d390-4cb5-8312-e5a29e2592a8">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1674,7 +1729,7 @@ CH4     365           273             74.79%
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_18586244-58b3-48f5-8f66-5d4c597ed040 button.colab-df-generate');
+        document.querySelector('#id_92d655e2-d390-4cb5-8312-e5a29e2592a8 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1707,7 +1762,7 @@ CH4     365           273             74.79%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f58414b334ecd4155a856b395eff5d55926342044a38eee67b1fabf638d53992.png" src="_images/f58414b334ecd4155a856b395eff5d55926342044a38eee67b1fabf638d53992.png" />
+<img alt="_images/dd03cf13003420f6250c4f0adf3816438b20c90d7b8e8f290c0526f0c83fe87d.png" src="_images/dd03cf13003420f6250c4f0adf3816438b20c90d7b8e8f290c0526f0c83fe87d.png" />
 </div>
 </div>
 <blockquote>
@@ -1717,34 +1772,355 @@ CH4     365           273             74.79%
 </section>
 <section id="visualisasi-time-series">
 <h2>5. Visualisasi Time Series<a class="headerlink" href="#visualisasi-time-series" title="Link to this heading">#</a></h2>
-<p>Grafik berikut menampilkan perubahan konsentrasi tiap gas polutan di Kabupaten Pamekasan sepanjang periode analisa, menggunakan data harian apa adanya (belum melalui tahap pembersihan/imputasi, karena tugas ini masih dibatasi hingga tahap <em>Data Understanding</em>).</p>
+<p>Pada bagian ini dibuat dua jenis grafik: grafik gabungan yang telah dinormalisasi ke rentang 0–1 untuk membandingkan pola seluruh polutan dalam satu sumbu, serta grafik terpisah per polutan dengan skala aslinya agar perubahan masing-masing polutan — termasuk CH4 yang datanya sangat terbatas — tetap dapat teramati dengan jelas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ternormalisasi</span> <span class="o">=</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">daftar_polutan</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">gas</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">daftar_polutan</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">],</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time Series </span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> — Kabupaten Pamekasan&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gas</span><span class="si">}</span><span class="s2"> (mol/m²)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">nilai_min</span> <span class="o">=</span> <span class="n">df_ternormalisasi</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">nilai_max</span> <span class="o">=</span> <span class="n">df_ternormalisasi</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">df_ternormalisasi</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_ternormalisasi</span><span class="p">[</span><span class="n">gas</span><span class="p">]</span> <span class="o">-</span> <span class="n">nilai_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nilai_max</span> <span class="o">-</span> <span class="n">nilai_min</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">gas</span> <span class="ow">in</span> <span class="n">daftar_polutan</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">],</span> <span class="n">df_ternormalisasi</span><span class="p">[</span><span class="n">gas</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">gas</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Perubahan Polutan dari Waktu ke Waktu (Ternormalisasi 0-1)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Nilai Ternormalisasi&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/141520fff702c2cb58433e772c62c90452ffb5f34dbe8aafdec643619ba076e7.png" src="_images/141520fff702c2cb58433e772c62c90452ffb5f34dbe8aafdec643619ba076e7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">daftar_polutan</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">daftar_polutan</span><span class="p">)),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">gas</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">daftar_polutan</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="s2">&quot;tanggal&quot;</span><span class="p">],</span> <span class="n">df_polutan_pamekasan</span><span class="p">[</span><span class="n">gas</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Perubahan Tiap Polutan dari Waktu ke Waktu di Kabupaten Pamekasan</span><span class="se">\n</span><span class="s2">Priode (31 Agustus 2025 – 31 Agustus 2026)&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tanggal&quot;</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Time Series Konsentrasi Polutan Udara di Kabupaten Pamekasan</span><span class="se">\n</span><span class="s2">(31 Agustus 2025 – 31 Agustus 2026)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c57acd0524c38b9db79e2f8ceb102f353fb69c914a76986218fe7b661335cd13.png" src="_images/c57acd0524c38b9db79e2f8ceb102f353fb69c914a76986218fe7b661335cd13.png" />
+<img alt="_images/c067df6dfc97c7279003b86f43e5c6f26b8a6a4e214779738c854ddfb25769be.png" src="_images/c067df6dfc97c7279003b86f43e5c6f26b8a6a4e214779738c854ddfb25769be.png" />
 </div>
 </div>
 </section>
 <section id="kesimpulan">
 <h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
 <p>Melalui tugas ini, data konsentrasi enam polutan udara (CO, NO2, SO2, O3, HCHO, dan CH4) di Kabupaten Pamekasan berhasil diperoleh dari satelit Sentinel-5P menggunakan layanan openEO pada Copernicus Data Space Ecosystem, dengan wilayah analisa dibatasi melalui berkas GeoJSON yang digambar di <a class="reference external" href="http://geojson.io">geojson.io</a>. Karena keterbatasan satu <em>band</em> per permintaan pada API, pengambilan data dilakukan bergiliran untuk tiap gas dan hasil akhirnya digabungkan menjadi satu berkas CSV. Tahap <em>data understanding</em> yang dilakukan mencakup pemeriksaan struktur dan isi data, deskripsi tiap fitur, identifikasi missing value (umumnya akibat tutupan awan), serta deteksi data anomali/outlier dengan metode IQR. Grafik <em>time series</em> yang dihasilkan menunjukkan pola fluktuasi tiap polutan sepanjang satu tahun pengamatan, yang diduga berkaitan dengan aktivitas pertanian, peternakan sapi, produksi garam, perikanan, serta lalu lintas kendaraan di wilayah Pamekasan. Temuan tahap ini menjadi dasar bagi tahap pembersihan data dan pemodelan lanjutan pada pertemuan berikutnya.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penyimpanan-data-ke-postgresql-aiven-dan-penarikannya-ke-knime">
+<h1>Penyimpanan Data ke PostgreSQL (Aiven) dan Penarikannya ke KNIME<a class="headerlink" href="#penyimpanan-data-ke-postgresql-aiven-dan-penarikannya-ke-knime" title="Link to this heading">#</a></h1>
+<section id="penyimpanan-data-ke-basis-data-postgresql-aiven">
+<h2>1. Penyimpanan Data ke Basis Data (PostgreSQL — Aiven)<a class="headerlink" href="#penyimpanan-data-ke-basis-data-postgresql-aiven" title="Link to this heading">#</a></h2>
+<p>Selain disimpan dalam bentuk berkas CSV, data polutan yang telah diperoleh pada tahap sebelumnya juga dipindahkan ke basis data PostgreSQL yang di-hosting pada layanan Aiven. Langkah ini dilakukan agar data dapat diakses kembali secara terpusat, misalnya melalui KNIME Analytics Platform atau aplikasi lain, tanpa bergantung pada ketersediaan berkas lokal.</p>
+<p>Seluruh kredensial koneksi (host, port, username, dan password) tidak dituliskan secara eksplisit di dalam kode, melainkan diambil melalui fitur Colab Secrets. Pendekatan ini diterapkan untuk mencegah kredensial tersebut ikut terekspos apabila notebook ini dibagikan atau diunggah ke repositori publik.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membaca ulang CSV pollutant_data_manado.csv, lalu mengunggahnya ke basis data PostgreSQL (Aiven)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">userdata</span>
+
+<span class="n">df_baru</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_polutan_pamekasan.csv&quot;</span><span class="p">)</span>
+
+<span class="n">AIVEN_USER</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AIVEN_USER&quot;</span><span class="p">)</span>
+<span class="n">AIVEN_PASSWORD</span> <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AIVEN_PASSWORD&quot;</span><span class="p">)</span>
+<span class="n">AIVEN_HOST</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AIVEN_HOST&quot;</span><span class="p">)</span>
+<span class="n">AIVEN_PORT</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AIVEN_PORT&quot;</span><span class="p">)</span>
+<span class="n">AIVEN_DB</span>       <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;AIVEN_DB&quot;</span><span class="p">)</span>
+
+<span class="n">db_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{</span><span class="n">AIVEN_USER</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">AIVEN_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">AIVEN_HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">AIVEN_PORT</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">AIVEN_DB</span><span class="si">}</span><span class="s2">?sslmode=require&quot;</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">db_url</span><span class="p">)</span>
+
+<span class="n">df_baru</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;Polutan_pamekasan&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Berhasil! </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_baru</span><span class="p">)</span><span class="si">}</span><span class="s2"> baris terupload ke Aiven.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM &quot;Polutan_pamekasan&quot; LIMIT 5&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berhasil! 366 baris terupload ke Aiven.
+      tanggal        CO       NO2       SO2        O3      HCHO          CH4
+0  2025-08-31  0.028413  0.000012 -0.000103  0.116304  0.000152          NaN
+1  2025-09-01  0.026705  0.000006 -0.000069  0.115098  0.000043          NaN
+2  2025-09-02  0.025357  0.000007  0.000013  0.114357  0.000046          NaN
+3  2025-09-03  0.026524  0.000011  0.000019  0.113698  0.000067  1890.583083
+4  2025-09-04  0.026057  0.000013 -0.000011  0.113273  0.000092  1840.894531
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Fungsi <code class="docutils literal notranslate"><span class="pre">pd.read_csv(&quot;data_polutan_pamekasan.csv&quot;)</span></code> digunakan untuk membaca kembali berkas CSV yang telah dihasilkan pada tahap <em>Data Understanding</em> sebelumnya.</p></li>
+<li><p>Kelima variabel kredensial (<code class="docutils literal notranslate"><span class="pre">AIVEN_USER</span></code>, <code class="docutils literal notranslate"><span class="pre">AIVEN_PASSWORD</span></code>, <code class="docutils literal notranslate"><span class="pre">AIVEN_HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">AIVEN_PORT</span></code>, <code class="docutils literal notranslate"><span class="pre">AIVEN_DB</span></code>) diperoleh melalui <code class="docutils literal notranslate"><span class="pre">userdata.get()</span></code> dari Colab Secrets, bukan dituliskan secara langsung pada kode.</p></li>
+<li><p>Fungsi <code class="docutils literal notranslate"><span class="pre">create_engine()</span></code> digunakan untuk membentuk koneksi ke basis data PostgreSQL Aiven melalui driver <code class="docutils literal notranslate"><span class="pre">psycopg2</span></code>, dengan parameter <code class="docutils literal notranslate"><span class="pre">sslmode=require</span></code> karena Aiven mewajibkan koneksi yang terenkripsi.</p></li>
+<li><p>Fungsi <code class="docutils literal notranslate"><span class="pre">df_baru.to_sql(&quot;Polutan_pamekasan&quot;,</span> <span class="pre">engine,</span> <span class="pre">if_exists=&quot;replace&quot;,</span> <span class="pre">index=False)</span></code> mengirimkan seluruh isi dataframe ke tabel <code class="docutils literal notranslate"><span class="pre">Polutan_pamekasan</span></code> pada basis data tersebut. Parameter <code class="docutils literal notranslate"><span class="pre">if_exists=&quot;replace&quot;</span></code> berarti tabel yang sudah ada sebelumnya akan digantikan dengan data terbaru.</p></li>
+<li><p>Dua baris <code class="docutils literal notranslate"><span class="pre">print()</span></code> pada bagian akhir kode berfungsi sebagai verifikasi, yaitu menampilkan jumlah baris yang berhasil diunggah beserta lima baris data teratas hasil kueri dari tabel tersebut.</p></li>
+</ul>
+</section>
+<section id="menarik-data-dari-postgresql-aiven-ke-knime">
+<h2>2. Menarik Data dari PostgreSQL (Aiven) ke KNIME<a class="headerlink" href="#menarik-data-dari-postgresql-aiven-ke-knime" title="Link to this heading">#</a></h2>
+<p>Setelah data polutan tersimpan pada basis data Aiven, tahap selanjutnya adalah menarik data tersebut ke KNIME Analytics Platform untuk keperluan eksplorasi lebih lanjut. Alur kerja yang digunakan tersusun atas empat node yang saling terhubung secara berurutan, yaitu <strong>PostgreSQL Connector</strong>, <strong>DB Table Selector</strong>, <strong>DB Reader</strong>, dan <strong>Statistics</strong>.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/r10KtLKOfl.png" /></p>
+</div></blockquote>
+<section id="postgresql-connector">
+<h3>2.1 PostgreSQL Connector<a class="headerlink" href="#postgresql-connector" title="Link to this heading">#</a></h3>
+<p>Berfungsi membuka koneksi ke server Aiven. Konfigurasi yang diisikan meliputi hostname sesuai <code class="docutils literal notranslate"><span class="pre">AIVEN_HOST</span></code>, port sesuai <code class="docutils literal notranslate"><span class="pre">AIVEN_PORT</span></code>, nama basis data <code class="docutils literal notranslate"><span class="pre">defaultdb</span></code>, serta username dan password sesuai kredensial Aiven, dengan SSL Mode diatur ke <code class="docutils literal notranslate"><span class="pre">require</span></code> karena Aiven mewajibkan koneksi terenkripsi. Dua port opsional pada bagian atas node dapat digunakan untuk menyuntikkan kredensial melalui flow variable; apabila tidak dihubungkan, username dan password dapat diisikan langsung pada tab konfigurasi node.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/SJlKc8tOfg.png" /></p>
+</div></blockquote>
+</section>
+<section id="db-table-selector">
+<h3>2.2 DB Table Selector<a class="headerlink" href="#db-table-selector" title="Link to this heading">#</a></h3>
+<p>Dihubungkan ke output PostgreSQL Connector, kemudian digunakan untuk memilih tabel <code class="docutils literal notranslate"><span class="pre">Polutan_pamekasan</span></code> yang sebelumnya telah dibuat melalui fungsi <code class="docutils literal notranslate"><span class="pre">to_sql()</span></code>.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/HJ8JiIFOzl.png" /></p>
+</div></blockquote>
+</section>
+<section id="db-reader">
+<h3>2.3 DB Reader<a class="headerlink" href="#db-reader" title="Link to this heading">#</a></h3>
+<p>Mengeksekusi kueri dari DB Table Selector dan mengonversi hasilnya menjadi tabel KNIME biasa, sehingga siap diproses oleh node analisis berikutnya.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/H15xvaFuze.png" /></p>
+</div></blockquote>
+</section>
+<section id="statistics">
+<h3>2.4 Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h3>
+<p>Dihubungkan langsung ke output DB Reader dan digunakan untuk menghitung ringkasan statistik (mean, median, standar deviasi, variance, min, max, kuartil, skewness, kurtosis, dan sebagainya) untuk setiap kolom polutan. Node ini memiliki tiga output port, yaitu Statistics Table, Nominal Histogram Table, dan Occurrences Table.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/HkXYFTtOzl.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/SkVRYpK_fg.png" /></p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/B1YRK6Ydfg.png" /></p>
+</div></blockquote>
+<p>Beberapa ukuran statistik yang dihasilkan oleh node ini meliputi:</p>
+<ul class="simple">
+<li><p><strong>Min</strong>, yaitu nilai terkecil pada kolom.</p></li>
+<li><p><strong>Max</strong>, yaitu nilai terbesar pada kolom.</p></li>
+<li><p><strong>Mean</strong>, yaitu nilai rata-rata data.</p></li>
+<li><p><strong>Variance</strong>, yaitu ukuran penyebaran data terhadap nilai rata-ratanya.</p></li>
+<li><p><strong>Std. Deviation</strong>, yaitu akar dari variance yang lebih mudah diinterpretasikan karena memiliki satuan yang sama dengan data asli.</p></li>
+<li><p><strong>Skewness</strong>, yaitu ukuran kemencengan (asimetri) distribusi data.</p></li>
+<li><p><strong>Kurtosis</strong>, yaitu ukuran keruncingan distribusi data dibandingkan dengan distribusi normal.</p></li>
+<li><p><strong>Overall Sum</strong>, yaitu jumlah seluruh nilai numerik pada kolom.</p></li>
+<li><p><strong>No. Missings</strong>, yaitu jumlah baris yang tidak memiliki nilai pada kolom tersebut.</p></li>
+<li><p><strong>No. NaNs</strong>, yaitu jumlah nilai yang secara eksplisit bertipe <em>Not a Number</em>.</p></li>
+<li><p><strong>No. +oos</strong> dan <strong>No. -oos</strong>, yaitu jumlah nilai positif dan negatif yang berada di luar batas (<em>out of spec</em>) yang ditetapkan.</p></li>
+<li><p><strong>Median</strong>, yaitu nilai tengah data setelah diurutkan.</p></li>
+<li><p><strong>Row Count</strong>, yaitu jumlah seluruh baris tabel, termasuk baris yang bernilai <em>missing</em>. Perlu digarisbawahi bahwa Row Count berbeda dengan jumlah data yang benar-benar digunakan dalam perhitungan Mean, Variance, dan statistik numerik lainnya, karena nilai <em>missing</em> tidak diikutsertakan dalam perhitungan tersebut.</p></li>
+</ul>
+</section>
+</section>
+<section id="ilustrasi-perhitungan-statistik">
+<h2>3. Ilustrasi Perhitungan Statistik<a class="headerlink" href="#ilustrasi-perhitungan-statistik" title="Link to this heading">#</a></h2>
+<p>Sebagai ilustrasi cara kerja node Statistics, diambil data kolom <strong>CO</strong> pada lima baris pertama data Pamekasan:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Hari</p></th>
+<th class="head"><p>Tanggal</p></th>
+<th class="head"><p>CO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2025-08-31</p></td>
+<td><p>0,028413</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2025-09-01</p></td>
+<td><p>0,026705</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2025-09-02</p></td>
+<td><p>0,025357</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2025-09-03</p></td>
+<td><p>0,026524</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2025-09-04</p></td>
+<td><p>0,026057</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Berbeda dari contoh milik teman (yang kebetulan memiliki satu baris kosong), pada lima baris pertama data Pamekasan ini seluruh nilai CO tercatat lengkap, sehingga banyaknya data yang dipakai dalam perhitungan berikut adalah <span class="math notranslate nohighlight">\(n = 5\)</span>.</p>
+<section id="min">
+<h3>3.1 Min<a class="headerlink" href="#min" title="Link to this heading">#</a></h3>
+<p>Min adalah nilai paling kecil di antara seluruh data yang tersedia.</p>
+<div class="math notranslate nohighlight">
+\[\text{Min} = \min(x_1, x_2, \dots, x_n)\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Min} = \min(0{,}028413;\ 0{,}026705;\ 0{,}025357;\ 0{,}026524;\ 0{,}026057) = 0{,}025357\]</div>
+<p>Sehingga Min CO = 0,025357.</p>
+</section>
+<section id="max">
+<h3>3.2 Max<a class="headerlink" href="#max" title="Link to this heading">#</a></h3>
+<p>Kebalikan dari Min, Max adalah nilai paling besar di antara data yang ada.</p>
+<div class="math notranslate nohighlight">
+\[\text{Max} = \max(x_1, x_2, \dots, x_n)\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Max} = \max(0{,}028413;\ 0{,}026705;\ 0{,}025357;\ 0{,}026524;\ 0{,}026057) = 0{,}028413\]</div>
+<p>Sehingga Max CO = 0,028413.</p>
+</section>
+<section id="mean">
+<h3>3.3 Mean<a class="headerlink" href="#mean" title="Link to this heading">#</a></h3>
+<p>Mean menggambarkan nilai tengah keseluruhan data, diperoleh dari total nilai dibagi banyaknya data.</p>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\]</div>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{0{,}028413 + 0{,}026705 + 0{,}025357 + 0{,}026524 + 0{,}026057}{5} = \frac{0{,}133056}{5} = 0{,}0266112\]</div>
+<p>Sehingga Mean CO = 0,0266112.</p>
+</section>
+<section id="variance">
+<h3>3.4 Variance<a class="headerlink" href="#variance" title="Link to this heading">#</a></h3>
+<p>Variance menunjukkan besarnya penyebaran data terhadap nilai rata-ratanya. Pada contoh ini digunakan rumus <em>sample variance</em>:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}\]</div>
+<p>Dengan <span class="math notranslate nohighlight">\(\bar{x} = 0{,}0266112\)</span>, selisih tiap nilai terhadap mean beserta kuadratnya adalah sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(x_i - \bar{x}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\((x_i-\bar{x})^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0,028413</p></td>
+<td><p>0,0018018</p></td>
+<td><p>0,00000325</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,026705</p></td>
+<td><p>0,0000938</p></td>
+<td><p>0,00000001</p></td>
+</tr>
+<tr class="row-even"><td><p>0,025357</p></td>
+<td><p>-0,0012542</p></td>
+<td><p>0,00000157</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,026524</p></td>
+<td><p>-0,0000872</p></td>
+<td><p>0,00000001</p></td>
+</tr>
+<tr class="row-even"><td><p>0,026057</p></td>
+<td><p>-0,0005542</p></td>
+<td><p>0,00000031</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jumlah seluruh kuadrat selisih tersebut <span class="math notranslate nohighlight">\(\approx 0{,}0000051430\)</span>, sehingga:</p>
+<div class="math notranslate nohighlight">
+\[s^2 = \frac{0{,}0000051430}{5-1} \approx 0{,}0000012858\]</div>
+<p>Diperoleh Variance CO ≈ 0,0000012858.</p>
+</section>
+<section id="std-deviation">
+<h3>3.5 Std. Deviation<a class="headerlink" href="#std-deviation" title="Link to this heading">#</a></h3>
+<p>Standar deviasi merupakan akar dari variance, dan lebih mudah diinterpretasikan karena satuannya sama dengan data aslinya.</p>
+<div class="math notranslate nohighlight">
+\[s = \sqrt{s^2} = \sqrt{0{,}0000012858} \approx 0{,}0011339\]</div>
+<p>Diperoleh Std. Deviation CO ≈ 0,0011339.</p>
+</section>
+<section id="skewness">
+<h3>3.6 Skewness<a class="headerlink" href="#skewness" title="Link to this heading">#</a></h3>
+<p>Skewness mengukur tingkat kemencengan (asimetri) distribusi data, menggunakan rumus <em>corrected sample skewness</em>:</p>
+<div class="math notranslate nohighlight">
+\[G_1 = \frac{n}{(n-1)(n-2)} \sum_{i=1}^{n} \left(\frac{x_i - \bar{x}}{s}\right)^3\]</div>
+<p>Dengan <span class="math notranslate nohighlight">\(n = 5\)</span>, <span class="math notranslate nohighlight">\(\bar{x} = 0{,}0266112\)</span>, dan <span class="math notranslate nohighlight">\(s \approx 0{,}0011339\)</span>, diperoleh:</p>
+<div class="math notranslate nohighlight">
+\[G_1 \approx 1{,}0593\]</div>
+<p>Nilai Skewness CO ≈ 1,0593 ini bertanda positif, menandakan distribusi data pada lima baris ini sedikit condong ke arah kanan (didominasi nilai rendah dengan satu nilai yang relatif tinggi di baris pertama).</p>
+</section>
+<section id="kurtosis">
+<h3>3.7 Kurtosis<a class="headerlink" href="#kurtosis" title="Link to this heading">#</a></h3>
+<p>Kurtosis menggambarkan tingkat keruncingan distribusi dibandingkan distribusi normal, dihitung dengan rumus <em>corrected sample excess kurtosis</em>:</p>
+<div class="math notranslate nohighlight">
+\[G_2 = \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum_{i=1}^{n} \left(\frac{x_i - \bar{x}}{s}\right)^4 - \frac{3(n-1)^2}{(n-2)(n-3)}\]</div>
+<p>Dengan <span class="math notranslate nohighlight">\(n = 5\)</span>, hasil perhitungannya:</p>
+<div class="math notranslate nohighlight">
+\[G_2 \approx 1{,}9116\]</div>
+<p>Nilai Kurtosis CO ≈ 1,9116 yang positif ini mengindikasikan bahwa distribusi data pada lima baris ini lebih runcing (lebih terpusat, dengan sedikit nilai ekstrem) dibandingkan distribusi normal.</p>
+</section>
+<section id="overall-sum">
+<h3>3.8 Overall Sum<a class="headerlink" href="#overall-sum" title="Link to this heading">#</a></h3>
+<p>Overall Sum adalah total penjumlahan seluruh nilai numerik yang tersedia pada kolom tersebut.</p>
+<div class="math notranslate nohighlight">
+\[\text{Sum} = \sum_{i=1}^{n} x_i\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Sum} = 0{,}028413 + 0{,}026705 + 0{,}025357 + 0{,}026524 + 0{,}026057 = 0{,}133056\]</div>
+<p>Sehingga Overall Sum CO = 0,133056.</p>
+</section>
+<section id="no-missings">
+<h3>3.9 No. Missings<a class="headerlink" href="#no-missings" title="Link to this heading">#</a></h3>
+<p>Fitur ini mencatat jumlah baris yang tidak memiliki nilai (kosong) pada kolom tersebut. Karena pada lima baris pertama ini seluruh data CO terisi lengkap:</p>
+<div class="math notranslate nohighlight">
+\[\text{No. Missings} = 0\]</div>
+</section>
+<section id="no-nans">
+<h3>3.10 No. NaNs<a class="headerlink" href="#no-nans" title="Link to this heading">#</a></h3>
+<p>Berbeda dari missing value, No. NaNs khusus menghitung nilai yang secara eksplisit bertipe <em>Not a Number</em>. Pada contoh ini juga tidak ditemukan nilai semacam itu:</p>
+<div class="math notranslate nohighlight">
+\[\text{No. NaNs} = 0\]</div>
+</section>
+<section id="no-oos">
+<h3>3.11 No. +oos<a class="headerlink" href="#no-oos" title="Link to this heading">#</a></h3>
+<p>Fitur ini menunjukkan banyaknya nilai positif yang berada di luar batas (<em>out of spec</em>) yang ditetapkan. Tidak ada data pada contoh ini yang termasuk kategori tersebut:</p>
+<div class="math notranslate nohighlight">
+\[\text{No. } {+oos} = 0\]</div>
+</section>
+<section id="id1">
+<h3>3.12 No. -oos<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Sebaliknya, fitur ini menghitung nilai negatif yang berada di luar batas yang ditetapkan. Pada contoh ini juga tidak ditemukan data semacam itu:</p>
+<div class="math notranslate nohighlight">
+\[\text{No. } {-oos} = 0\]</div>
+</section>
+<section id="median">
+<h3>3.13 Median<a class="headerlink" href="#median" title="Link to this heading">#</a></h3>
+<p>Median merupakan nilai yang berada tepat di tengah setelah data diurutkan. Data yang telah diurutkan:</p>
+<div class="math notranslate nohighlight">
+\[0{,}025357;\ 0{,}026057;\ 0{,}026524;\ 0{,}026705;\ 0{,}028413\]</div>
+<p>Karena jumlah data ganjil (<span class="math notranslate nohighlight">\(n = 5\)</span>), median diambil langsung dari nilai tengah (data ke-3):</p>
+<div class="math notranslate nohighlight">
+\[\text{Median} = x_{(3)} = 0{,}026524\]</div>
+<p>Sehingga Median CO = 0,026524.</p>
+</section>
+<section id="row-count">
+<h3>3.14 Row Count<a class="headerlink" href="#row-count" title="Link to this heading">#</a></h3>
+<p>Row Count menghitung seluruh baris pada tabel, termasuk yang bernilai missing. Pada contoh ini terdapat 5 baris:</p>
+<div class="math notranslate nohighlight">
+\[\text{Row Count} = 5\]</div>
+<p>Perlu digarisbawahi bahwa Row Count tidak selalu sama dengan jumlah data yang dipakai dalam perhitungan Mean, Variance, dan statistik numerik lainnya — pada contoh ini kebetulan sama karena tidak ada nilai yang kosong, namun akan berbeda bila salah satu barisnya missing (seperti pada kolom CH4, yang sebagian datanya belum tersedia pada rentang lima baris ini).</p>
+</section>
+</section>
+<section id="id2">
+<h2>Kesimpulan<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Data polutan yang telah tersimpan sebagai CSV diunggah ke basis data PostgreSQL (Aiven), dengan kredensial disimpan lewat Colab Secrets agar tidak ikut terekspos. Data tersebut kemudian ditarik ke KNIME melalui alur empat node — PostgreSQL Connector, DB Table Selector, DB Reader, dan Statistics — untuk menghasilkan ringkasan statistik tiap polutan secara otomatis. Hasilnya sejalan dengan perhitungan manual pada bagian sebelumnya, sehingga proses penyimpanan dan penarikan data antara Aiven dan KNIME dapat dipastikan berjalan dengan benar.</p>
 </section>
 </section>
 
@@ -1805,16 +2181,18 @@ CH4     365           273             74.79%
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Crawling &amp; Analisis Data Polutan Udara di Kabupaten Pamekasan</a><ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gambaran-wilayah-analisa">Gambaran Wilayah Analisa</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">1. Business Understanding</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.1 Tujuan Analisis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.2 Manfaat Analisis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.3 Dugaan Sumber Tiap Polutan</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.4 Deskripsi Umum Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latar-belakang">1.1 Latar Belakang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis">1.2 Tujuan Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manfaat-analisis">1.3 Manfaat Analisis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dugaan-sumber-tiap-polutan">1.4 Dugaan Sumber Tiap Polutan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-data">1.5 Deskripsi Umum Data</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penetapan-area-analisa-aoi-melalui-geojson-io">2. Penetapan Area Analisa (AOI) Melalui GeoJSON.io</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling">3. Pengambilan Data (Crawling)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengambilan-data-crawling-via-openeo-copernicus-data-space-ecosystem">3. Pengambilan Data (Crawling) via openEO — Copernicus Data Space Ecosystem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-autentikasi">3.1 Instalasi &amp; Autentikasi</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengunduh-enam-parameter-polutan">3.2 Mengunduh Enam Parameter Polutan</a></li>
 </ul>
@@ -1824,12 +2202,44 @@ CH4     365           273             74.79%
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-struktur-isi-data">4.2 Eksplorasi Struktur &amp; Isi Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-tiap-fitur">4.3 Penjelasan Tiap Fitur</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengecekan-missing-value">4.4 Pengecekan Missing Value</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.5 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data-seluas-luasnya-pengecekan-data-aneh-outlier">4.4 Eksplorasi Data Seluas-luasnya &amp; Pengecekan Data Aneh (Outlier)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-time-series">5. Visualisasi Time Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-ke-postgresql-aiven-dan-penarikannya-ke-knime">Penyimpanan Data ke PostgreSQL (Aiven) dan Penarikannya ke KNIME</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyimpanan-data-ke-basis-data-postgresql-aiven">1. Penyimpanan Data ke Basis Data (PostgreSQL — Aiven)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menarik-data-dari-postgresql-aiven-ke-knime">2. Menarik Data dari PostgreSQL (Aiven) ke KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-connector">2.1 PostgreSQL Connector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-table-selector">2.2 DB Table Selector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-reader">2.3 DB Reader</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">2.4 Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ilustrasi-perhitungan-statistik">3. Ilustrasi Perhitungan Statistik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min">3.1 Min</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max">3.2 Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">3.3 Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">3.4 Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#std-deviation">3.5 Std. Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">3.6 Skewness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">3.7 Kurtosis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-sum">3.8 Overall Sum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-missings">3.9 No. Missings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-nans">3.10 No. NaNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-oos">3.11 No. +oos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.12 No. -oos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">3.13 Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#row-count">3.14 Row Count</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
