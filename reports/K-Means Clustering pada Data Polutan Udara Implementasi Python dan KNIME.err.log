@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "/usr/local/python/3.14.2/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/codespace/.local/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/codespace/.local/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/local/python/3.14.2/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/codespace/.local/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/codespace/.local/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.local/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+from sqlalchemy import create_engine
+from google.colab import userdata
+
+# Konfigurasi kredensial dan koneksi database
+AIVEN_USER     = userdata.get("AIVEN_USER")
+AIVEN_PASSWORD = userdata.get("AIVEN_PASSWORD")
+AIVEN_HOST     = userdata.get("AIVEN_HOST")
+AIVEN_PORT     = userdata.get("AIVEN_PORT")
+AIVEN_DB       = userdata.get("AIVEN_DB")
+
+db_url = f"postgresql+psycopg2://{AIVEN_USER}:{AIVEN_PASSWORD}@{AIVEN_HOST}:{AIVEN_PORT}/{AIVEN_DB}?sslmode=require"
+engine = create_engine(db_url)
+
+# Pemetaan nama file CSV dan nama tabel tujuan
+files_and_tables = {
+    "ekstraksi_fitur_co.csv": "fitur_co",
+    "ekstraksi_fitur_no2.csv": "fitur_no2",
+    "ekstraksi_fitur_so2.csv": "fitur_so2"
+}
+
+# Process upload secara berurutan
+for file_path, table_name in files_and_tables.items():
+    df = pd.read_csv(file_path)
+    df.to_sql(table_name, engine, if_exists="replace", index=False)
+    print(f"Berhasil! {len(df)} baris dari '{file_path}' ter-upload ke tabel '{table_name}'.")
+
+# Cek preview 5 baris pertama dari tiap tabel
+with engine.connect() as conn:
+    for table_name in files_and_tables.values():
+        print(f"\n--- Preview Tabel {table_name} ---")
+        print(pd.read_sql(f'SELECT * FROM "{table_name}" LIMIT 5', conn))
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 3[39m
+[32m      1[39m [38;5;28;01mimport[39;00m pandas [38;5;28;01mas[39;00m pd
+[32m      2[39m [38;5;28;01mfrom[39;00m sqlalchemy [38;5;28;01mimport[39;00m create_engine
+[32m----> [39m[32m3[39m [38;5;28;01mfrom[39;00m google.colab [38;5;28;01mimport[39;00m userdata
+[32m      4[39m 
+[32m      5[39m [38;5;66;03m# Konfigurasi kredensial dan koneksi database[39;00m
+[32m      6[39m AIVEN_USER     = userdata.get([33m"AIVEN_USER"[39m)
+
+[31mModuleNotFoundError[39m: No module named 'google'
+

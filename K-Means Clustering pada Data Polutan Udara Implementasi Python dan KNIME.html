@@ -1,0 +1,1430 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>K-Means Clustering pada Data Polutan Udara: Implementasi Python dan KNIME &#8212; Proyek Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'K-Means Clustering pada Data Polutan Udara Implementasi Python dan KNIME';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Ekstraksi Fitur TSFEL dan Perhitungan Manual pada Data Polutan Udara" href="Ekstraksi%20Fitur%20TSFEL%20dan%20Perhitungan%20Manual%20pada%20Data%20Polutan%20Udara.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Proyek Sains Data - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Proyek Sains Data - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20Analisis%20Data%20Polutan%20Udara%20di%20Kecamatan%20Waru.html">Crawling &amp; Analisis Data Polutan Udara di Kecamatan Waru</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FK-Means Clustering pada Data Polutan Udara Implementasi Python dan KNIME.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/K-Means Clustering pada Data Polutan Udara Implementasi Python dan KNIME.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>K-Means Clustering pada Data Polutan Udara: Implementasi Python dan KNIME</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-dan-mengunggah-data-ke-database">1. Menggabungkan dan Mengunggah Data ke Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-elbow-method-dan-silhouette-score">2. Evaluasi Jumlah Cluster (Elbow Method dan Silhouette Score)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-no2">2.1 Evaluasi Jumlah Cluster pada NO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-co">2.2 Evaluasi Jumlah Cluster pada CO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-so2">2.3 Evaluasi Jumlah Cluster pada SO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-reduksi-pca-dari-1-sampai-37-komponen">2.4 Evaluasi Reduksi PCA dari 1 sampai 37 Komponen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-tanpa-pca-memakai-seluruh-68-fitur">2.5 Evaluasi Tanpa PCA (Memakai Seluruh 68 Fitur)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-evaluasi-jumlah-cluster-sisi-python">2.6 Kesimpulan Evaluasi Jumlah Cluster (Sisi Python)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling">3. Visualisasi Scatter Plot PCA dan Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-no2">3.1 Visualisasi Scatter Plot PCA dan Profiling pas NO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-co">3.2 Visualisasi Scatter Plot PCA dan Profiling pas CO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-so2">3.3 Visualisasi Scatter Plot PCA dan Profiling pas SO2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-alur-kerja-workflow-clustering-knime">4. Implementasi Alur Kerja (Workflow) Clustering KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-connector">4.1  PostgreSQL Connector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#db-table-selector">4.2 DB Table Selector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#db-reader">4.3 DB Reader</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">4.4 PCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">4.5 k-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">4. 6 Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-coefficient">4.7 Silhouette Coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering-setiap-polutan-scatter-plot-silhouette-coefficient-knime">5. Hasil Clustering Setiap Polutan (Scatter Plot &amp; Silhouette Coefficient KNIME)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-no2-k-2">5.1 Polutan NO2 (K = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-co-k-2">5.2 Polutan CO (K = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-so2-k-2">5.3 Polutan SO2 (K = 2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-sisi-python-evaluasi-jumlah-cluster-bagian-2">Kesimpulan Sisi Python (Evaluasi Jumlah Cluster, bagian 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-sisi-knime-bagian-4-5">Kesimpulan Sisi KNIME (bagian 4-5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-python-dan-knime">Sintesis Python dan KNIME</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="k-means-clustering-pada-data-polutan-udara-implementasi-python-dan-knime">
+<h1>K-Means Clustering pada Data Polutan Udara: Implementasi Python dan KNIME<a class="headerlink" href="#k-means-clustering-pada-data-polutan-udara-implementasi-python-dan-knime" title="Link to this heading">#</a></h1>
+<p>Catatan ini adalah <strong>bagian 2 dari 2</strong>, melanjutkan hasil ekstraksi 68 fitur TSFEL untuk tiga polutan — <strong>NO2, CO, dan SO2</strong> — dari notebook <strong>bagian 1</strong> (<code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_co.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_no2.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_so2.csv</span></code>). Bagian ini mencakup proses menggabungkan dan mengunggah data hasil ekstraksi ke database, hingga proses <strong>K-Means Clustering</strong> untuk mengelompokkan kecamatan berdasarkan pola fiturnya. Seluruh tahapan dikerjakan dan dibandingkan lewat dua pendekatan: <strong>Python</strong> (Google Colab, memakai <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>) dan <strong>KNIME</strong> (visual workflow berbasis database PostgreSQL).</p>
+<p>Cakupan catatan ini meliputi:</p>
+<ol class="arabic simple">
+<li><p>Menggabungkan dan mengunggah data hasil ekstraksi ketiga polutan ke database PostgreSQL (Aiven)</p></li>
+<li><p>Evaluasi jumlah cluster terbaik (Elbow Method dan Silhouette Score) pada tiap polutan — termasuk menyapu jumlah komponen PCA dari 1 s.d. 37 dan membandingkan dengan tanpa PCA (68 fitur penuh)</p></li>
+<li><p>Visualisasi scatter plot hasil PCA dan profiling cluster</p></li>
+<li><p>Implementasi alur kerja (workflow) clustering di KNIME</p></li>
+<li><p>Hasil clustering tiap polutan beserta Silhouette Coefficient</p></li>
+</ol>
+<section id="menggabungkan-dan-mengunggah-data-ke-database">
+<h2>1. Menggabungkan dan Mengunggah Data ke Database<a class="headerlink" href="#menggabungkan-dan-mengunggah-data-ke-database" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">userdata</span>
+
+<span class="c1"># Konfigurasi kredensial dan koneksi database</span>
+<span class="n">AIVEN_USER</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_USER"</span><span class="p">)</span>
+<span class="n">AIVEN_PASSWORD</span> <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_PASSWORD"</span><span class="p">)</span>
+<span class="n">AIVEN_HOST</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_HOST"</span><span class="p">)</span>
+<span class="n">AIVEN_PORT</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_PORT"</span><span class="p">)</span>
+<span class="n">AIVEN_DB</span>       <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_DB"</span><span class="p">)</span>
+
+<span class="n">db_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"postgresql+psycopg2://</span><span class="si">{</span><span class="n">AIVEN_USER</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">AIVEN_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">AIVEN_HOST</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">AIVEN_PORT</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">AIVEN_DB</span><span class="si">}</span><span class="s2">?sslmode=require"</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">db_url</span><span class="p">)</span>
+
+<span class="c1"># Pemetaan nama file CSV dan nama tabel tujuan</span>
+<span class="n">files_and_tables</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"ekstraksi_fitur_co.csv"</span><span class="p">:</span> <span class="s2">"fitur_co"</span><span class="p">,</span>
+    <span class="s2">"ekstraksi_fitur_no2.csv"</span><span class="p">:</span> <span class="s2">"fitur_no2"</span><span class="p">,</span>
+    <span class="s2">"ekstraksi_fitur_so2.csv"</span><span class="p">:</span> <span class="s2">"fitur_so2"</span>
+<span class="p">}</span>
+
+<span class="c1"># Process upload secara berurutan</span>
+<span class="k">for</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">files_and_tables</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"replace"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Berhasil! </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> baris dari '</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">' ter-upload ke tabel '</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+
+<span class="c1"># Cek preview 5 baris pertama dari tiap tabel</span>
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">files_and_tables</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Preview Tabel </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> ---"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="sa">f</span><span class="s1">'SELECT * FROM "</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s1">" LIMIT 5'</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">userdata</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Konfigurasi kredensial dan koneksi database</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">AIVEN_USER</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_USER"</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named 'google'
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Notebook dihubungkan ke basis data PostgreSQL (Aiven) lewat SQLAlchemy + driver <code class="docutils literal notranslate"><span class="pre">psycopg2</span></code>.</p></li>
+<li><p>Kredensial diambil dari Colab Secrets (<code class="docutils literal notranslate"><span class="pre">userdata.get</span></code>), tidak ditulis langsung di kode; <code class="docutils literal notranslate"><span class="pre">sslmode=require</span></code> dipakai karena Aiven mewajibkan koneksi terenkripsi.</p></li>
+<li><p>Tiga berkas hasil ekstraksi fitur diunggah ke tabel masing-masing (<code class="docutils literal notranslate"><span class="pre">fitur_no2</span></code>, <code class="docutils literal notranslate"><span class="pre">fitur_co</span></code>, <code class="docutils literal notranslate"><span class="pre">fitur_so2</span></code>) dengan <code class="docutils literal notranslate"><span class="pre">df.to_sql(...,</span> <span class="pre">if_exists=&quot;replace&quot;)</span></code>, agar sel bisa dijalankan ulang tanpa duplikasi data.</p></li>
+<li><p>Lima baris pertama tiap tabel dibaca ulang dari basis data sebagai bukti unggahan berhasil.</p></li>
+</ul>
+</section>
+<section id="evaluasi-jumlah-cluster-elbow-method-dan-silhouette-score">
+<h2>2. Evaluasi Jumlah Cluster (Elbow Method dan Silhouette Score)<a class="headerlink" href="#evaluasi-jumlah-cluster-elbow-method-dan-silhouette-score" title="Link to this heading">#</a></h2>
+<section id="evaluasi-jumlah-cluster-pada-no2">
+<h3>2.1 Evaluasi Jumlah Cluster pada NO2<a class="headerlink" href="#evaluasi-jumlah-cluster-pada-no2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_no2.csv'</span><span class="p">)</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">)</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">)</span>
+
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">inertia</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">kmeans_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">kmeans_temp</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">inertia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_temp</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">hasil_evaluasi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'K'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">),</span> <span class="s1">'Inertia'</span><span class="p">:</span> <span class="n">inertia</span><span class="p">,</span> <span class="s1">'Silhouette Score'</span><span class="p">:</span> <span class="n">silhouette</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hasil_evaluasi</span><span class="p">[</span><span class="s1">'Silhouette Score'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="s1">'K'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">K terbaik (NO2) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Elbow plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">inertia</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Elbow Method (NO2)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Inersia (Jarak Kuadrat)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Silhouette plot, dengan K terbaik ditandai</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">silhouette</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkorange'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'K terbaik = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Silhouette Score (NO2)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Silhouette Score'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> K     Inertia  Silhouette Score
+ 2 1326.578705          0.745489
+ 3 1001.281921          0.190722
+ 4  811.798641          0.204530
+ 5  655.789824          0.216606
+ 6  578.312417          0.185596
+ 7  504.989692          0.161947
+ 8  458.598752          0.166889
+ 9  424.658844          0.151594
+10  373.027966          0.172124
+
+K terbaik (NO2) berdasarkan Silhouette Score tertinggi: K = 2
+</pre></div>
+</div>
+<img alt="_images/8662d245e4a4c178d055d0ae1bd23ecd1ce73f531280719412b3aafca36b91a4.png" src="_images/8662d245e4a4c178d055d0ae1bd23ecd1ce73f531280719412b3aafca36b91a4.png" />
+<img alt="_images/d9f3f8da5724c88d067903957784143ef49bec113dc78902a0e859ab1db4c024.png" src="_images/d9f3f8da5724c88d067903957784143ef49bec113dc78902a0e859ab1db4c024.png" />
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>68 fitur TSFEL (kolom <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">nama</span></code>, <code class="docutils literal notranslate"><span class="pre">daerah</span></code> dikeluarkan) distandardisasi dengan <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>, lalu direduksi dengan PCA menjadi 37 komponen — jumlah maksimum yang mungkin karena data hanya 37 observasi (kecamatan).</p></li>
+<li><p>K-Means dijalankan untuk K = 2 sampai 10; pada tiap K dicatat <code class="docutils literal notranslate"><span class="pre">inertia_</span></code> (Elbow Method) dan <code class="docutils literal notranslate"><span class="pre">silhouette_score</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_terbaik</span></code> dipilih secara objektif sebagai K dengan Silhouette Score tertinggi, bukan dari interpretasi visual grafik elbow.</p></li>
+<li><p>Hasil ditampilkan pada tabel <code class="docutils literal notranslate"><span class="pre">hasil_evaluasi</span></code> dan grafik Silhouette Score dengan garis vertikal penanda <code class="docutils literal notranslate"><span class="pre">k_terbaik</span></code>, yang menjadi acuan K-Means final di bagian 3.1.</p></li>
+</ul>
+</section>
+<section id="evaluasi-jumlah-cluster-pada-co">
+<h3>2.2 Evaluasi Jumlah Cluster pada CO<a class="headerlink" href="#evaluasi-jumlah-cluster-pada-co" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_co.csv'</span><span class="p">)</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">)</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">)</span>
+
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">inertia</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">kmeans_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">kmeans_temp</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">inertia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_temp</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">hasil_evaluasi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'K'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">),</span> <span class="s1">'Inertia'</span><span class="p">:</span> <span class="n">inertia</span><span class="p">,</span> <span class="s1">'Silhouette Score'</span><span class="p">:</span> <span class="n">silhouette</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hasil_evaluasi</span><span class="p">[</span><span class="s1">'Silhouette Score'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="s1">'K'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">K terbaik (CO) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Elbow plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">inertia</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Elbow Method (CO)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Inersia (Jarak Kuadrat)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Silhouette plot, dengan K terbaik ditandai</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">silhouette</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkorange'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'K terbaik = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Silhouette Score (CO)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Silhouette Score'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> K     Inertia  Silhouette Score
+ 2 1123.800303          0.795494
+ 3  660.214101          0.697034
+ 4  509.373825          0.342517
+ 5  413.889526          0.184501
+ 6  361.351576          0.153812
+ 7  315.868398          0.161337
+ 8  272.854136          0.142490
+ 9  239.322559          0.150055
+10  221.039012          0.145469
+
+K terbaik (CO) berdasarkan Silhouette Score tertinggi: K = 2
+</pre></div>
+</div>
+<img alt="_images/a928ee50fcda53670c7c7c9b693f5ba739307ea2fd28ba0883b9c2e9d5601e7c.png" src="_images/a928ee50fcda53670c7c7c9b693f5ba739307ea2fd28ba0883b9c2e9d5601e7c.png" />
+<img alt="_images/9934d0e9f63c8b8c59d8606208e1da5ccf84262bcadf56db206892a1ffd04deb.png" src="_images/9934d0e9f63c8b8c59d8606208e1da5ccf84262bcadf56db206892a1ffd04deb.png" />
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Prosedur identik dengan subbab 2.1, hanya sumber data yang berbeda (<code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_co.csv</span></code>).</p></li>
+<li><p>Silhouette Score tertinggi dicapai pada K = 2 (0,795), menjadi K terbaik untuk polutan CO.</p></li>
+</ul>
+</section>
+<section id="evaluasi-jumlah-cluster-pada-so2">
+<h3>2.3 Evaluasi Jumlah Cluster pada SO2<a class="headerlink" href="#evaluasi-jumlah-cluster-pada-so2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_so2.csv'</span><span class="p">)</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">)</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">)</span>
+
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">inertia</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">kmeans_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">kmeans_temp</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">inertia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_temp</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">hasil_evaluasi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'K'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">),</span> <span class="s1">'Inertia'</span><span class="p">:</span> <span class="n">inertia</span><span class="p">,</span> <span class="s1">'Silhouette Score'</span><span class="p">:</span> <span class="n">silhouette</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hasil_evaluasi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hasil_evaluasi</span><span class="p">[</span><span class="s1">'Silhouette Score'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(),</span> <span class="s1">'K'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">K terbaik (SO2) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Elbow plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">inertia</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Elbow Method (SO2)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Inersia (Jarak Kuadrat)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Silhouette plot, dengan K terbaik ditandai</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K_range</span><span class="p">,</span> <span class="n">silhouette</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'darkorange'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'K terbaik = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Evaluasi Jumlah Cluster dengan Silhouette Score (SO2)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Silhouette Score'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> K     Inertia  Silhouette Score
+ 2 1210.459866          0.789366
+ 3  691.644801          0.708469
+ 4  525.289021          0.392088
+ 5  413.678733          0.406057
+ 6  335.555572          0.135855
+ 7  301.063844          0.126801
+ 8  267.415808          0.099564
+ 9  239.817616          0.120845
+10  230.171524          0.092438
+
+K terbaik (SO2) berdasarkan Silhouette Score tertinggi: K = 2
+</pre></div>
+</div>
+<img alt="_images/75fdae6ad596f747370baeafb793d5bf736155b051c59a7a7e95d2856207d236.png" src="_images/75fdae6ad596f747370baeafb793d5bf736155b051c59a7a7e95d2856207d236.png" />
+<img alt="_images/887501b7db3143cb0a1af4402fb073b9c06df07bee8aac0ac296d7f8e63a89b7.png" src="_images/887501b7db3143cb0a1af4402fb073b9c06df07bee8aac0ac296d7f8e63a89b7.png" />
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Prosedur identik dengan subbab 2.1, hanya sumber data yang berbeda (<code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_so2.csv</span></code>).</p></li>
+<li><p>Silhouette Score tertinggi dicapai pada K = 2 (0,789), menjadi K terbaik untuk polutan SO2.</p></li>
+</ul>
+</section>
+<section id="evaluasi-reduksi-pca-dari-1-sampai-37-komponen">
+<h3>2.4 Evaluasi Reduksi PCA dari 1 sampai 37 Komponen<a class="headerlink" href="#evaluasi-reduksi-pca-dari-1-sampai-37-komponen" title="Link to this heading">#</a></h3>
+<p>Pada bagian 2.1-2.3, jumlah komponen PCA ditetapkan tetap pada <code class="docutils literal notranslate"><span class="pre">n_components=37</span></code>, yaitu dimensi maksimum yang dapat dibentuk mengingat jumlah sampel sebanyak 37 kecamatan. Bagian ini mengevaluasi pengaruh jumlah komponen PCA terhadap jumlah cluster optimal, dengan mencoba seluruh nilai <code class="docutils literal notranslate"><span class="pre">n_components</span></code> dari 1 hingga 37 pada ketiga polutan.</p>
+<p>Untuk setiap polutan dan setiap nilai <code class="docutils literal notranslate"><span class="pre">n_components</span></code>, prosedurnya adalah sebagai berikut.</p>
+<ol class="arabic simple">
+<li><p>Data 68 fitur distandardisasi, kemudian direduksi dengan PCA ke <code class="docutils literal notranslate"><span class="pre">n_components</span></code> tersebut.</p></li>
+<li><p>K-Means dijalankan untuk K = 2 hingga K = 10, dan Silhouette Score tertinggi di antara kesepuluh nilai K dicatat sebagai representasi kualitas cluster pada jumlah komponen tersebut.</p></li>
+<li><p>Hasilnya divisualisasikan sebagai kurva Silhouette Score terhadap jumlah komponen PCA untuk ketiga polutan.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="n">POLUTAN</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'NO2'</span><span class="p">,</span> <span class="s1">'CO'</span><span class="p">,</span> <span class="s1">'SO2'</span><span class="p">]</span>
+<span class="n">FILES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'NO2'</span><span class="p">:</span> <span class="s1">'ekstraksi_fitur_no2.csv'</span><span class="p">,</span> <span class="s1">'CO'</span><span class="p">:</span> <span class="s1">'ekstraksi_fitur_co.csv'</span><span class="p">,</span> <span class="s1">'SO2'</span><span class="p">:</span> <span class="s1">'ekstraksi_fitur_so2.csv'</span><span class="p">}</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'NO2'</span><span class="p">:</span> <span class="s1">'tab:blue'</span><span class="p">,</span> <span class="s1">'CO'</span><span class="p">:</span> <span class="s1">'tab:orange'</span><span class="p">,</span> <span class="s1">'SO2'</span><span class="p">:</span> <span class="s1">'tab:green'</span><span class="p">}</span>
+
+<span class="n">sweep_results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FILES</span><span class="p">[</span><span class="n">pol</span><span class="p">])</span>
+    <span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fitur_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">)</span>
+
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n_comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">38</span><span class="p">):</span>
+        <span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_comp</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">)</span>
+        <span class="n">best_k</span><span class="p">,</span> <span class="n">best_sil</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+            <span class="n">sil</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sil</span> <span class="o">&gt;</span> <span class="n">best_sil</span><span class="p">:</span>
+                <span class="n">best_sil</span><span class="p">,</span> <span class="n">best_k</span> <span class="o">=</span> <span class="n">sil</span><span class="p">,</span> <span class="n">k</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">n_comp</span><span class="p">,</span> <span class="n">best_k</span><span class="p">,</span> <span class="n">best_sil</span><span class="p">))</span>
+    <span class="n">sweep_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'n_components'</span><span class="p">,</span> <span class="s1">'K_terbaik'</span><span class="p">,</span> <span class="s1">'Silhouette_terbaik'</span><span class="p">])</span>
+
+<span class="c1"># Plot kurva Silhouette Score terbaik vs jumlah komponen PCA, ketiga polutan sekaligus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">rdf</span> <span class="o">=</span> <span class="n">sweep_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'n_components'</span><span class="p">],</span> <span class="n">rdf</span><span class="p">[</span><span class="s1">'Silhouette_terbaik'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'.'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">pol</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="n">pol</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Silhouette Score Terbaik vs Jumlah Komponen PCA (1-37)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Jumlah Komponen PCA'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Silhouette Score Terbaik (K=2..10)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Polutan'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Ringkasan: kombinasi (n_components, K) terbaik per polutan, dan nilai pada n_components=37 sebagai pembanding</span>
+<span class="n">summary_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">rdf</span> <span class="o">=</span> <span class="n">sweep_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'Silhouette_terbaik'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">rdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'n_components'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">37</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">summary_rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">'polutan'</span><span class="p">:</span> <span class="n">pol</span><span class="p">,</span>
+        <span class="s1">'n_components_terbaik'</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">top</span><span class="o">.</span><span class="n">n_components</span><span class="p">),</span>
+        <span class="s1">'K_terbaik'</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">top</span><span class="o">.</span><span class="n">K_terbaik</span><span class="p">),</span>
+        <span class="s1">'silhouette_terbaik'</span><span class="p">:</span> <span class="n">top</span><span class="o">.</span><span class="n">Silhouette_terbaik</span><span class="p">,</span>
+        <span class="s1">'silhouette_pada_37_komponen'</span><span class="p">:</span> <span class="n">baseline</span><span class="o">.</span><span class="n">Silhouette_terbaik</span><span class="p">,</span>
+        <span class="s1">'K_konsisten_2_di_semua_n_components'</span><span class="p">:</span> <span class="nb">bool</span><span class="p">((</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'K_terbaik'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()),</span>
+    <span class="p">})</span>
+<span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary_rows</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f2c35bb15e5808e0b874f789563862cd8193fb185c492bd88282b0b814378e2a.png" src="_images/f2c35bb15e5808e0b874f789563862cd8193fb185c492bd88282b0b814378e2a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>polutan  n_components_terbaik  K_terbaik  silhouette_terbaik  silhouette_pada_37_komponen  K_konsisten_2_di_semua_n_components
+    NO2                     1          2            0.962038                     0.745489                                 True
+     CO                     1          2            0.948900                     0.795494                                 True
+    SO2                     1          2            0.925296                     0.789366                                 True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Pola sama untuk ketiga polutan: Silhouette Score tertinggi terjadi pada jumlah komponen paling sedikit (NO2 = 0,962; CO = 0,949; SO2 = 0,925 pada 1 komponen), lalu menurun bertahap hingga 37 komponen (mis. NO2 = 0,745, sesuai bagian 2.1-2.3).</p></li>
+<li><p>Pada seluruh 1-37 komponen yang diuji, K = 2 selalu menjadi K dengan Silhouette Score tertinggi (<code class="docutils literal notranslate"><span class="pre">K_konsisten_2_di_semua_n_components</span> <span class="pre">=</span> <span class="pre">True</span></code>).</p></li>
+<li><p>Skor tinggi pada komponen sangat sedikit bukan berarti cluster lebih baik — itu efek pemampatan data ke ruang berdimensi rendah yang membuat titik tampak lebih terpisah, padahal sebagian besar variasi asli hilang.</p></li>
+<li><p>Skor pada komponen lebih banyak dianggap lebih representatif karena mempertahankan lebih banyak informasi asli. Kesimpulan: jumlah cluster terbaik tetap K = 2 untuk ketiga polutan, tidak bergantung jumlah komponen PCA.</p></li>
+</ul>
+</section>
+<section id="evaluasi-tanpa-pca-memakai-seluruh-68-fitur">
+<h3>2.5 Evaluasi Tanpa PCA (Memakai Seluruh 68 Fitur)<a class="headerlink" href="#evaluasi-tanpa-pca-memakai-seluruh-68-fitur" title="Link to this heading">#</a></h3>
+<p>Bagian ini mengulang evaluasi jumlah cluster tanpa melalui reduksi PCA; K-Means dijalankan langsung pada 68 fitur hasil standardisasi. Tujuannya adalah menguji apakah reduksi dimensi dengan PCA benar-benar mengubah hasil clustering dibandingkan dengan penggunaan seluruh fitur secara langsung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">nopca_results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FILES</span><span class="p">[</span><span class="n">pol</span><span class="p">])</span>
+    <span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fitur_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">)</span>   <span class="c1"># tanpa PCA, langsung 68 fitur</span>
+
+    <span class="n">inertia</span><span class="p">,</span> <span class="n">sil</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+        <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">)</span>
+        <span class="n">inertia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+        <span class="n">sil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_scaled</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+    <span class="n">nopca_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'K'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">),</span> <span class="s1">'Inertia'</span><span class="p">:</span> <span class="n">inertia</span><span class="p">,</span> <span class="s1">'Silhouette'</span><span class="p">:</span> <span class="n">sil</span><span class="p">})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">rdf</span> <span class="o">=</span> <span class="n">nopca_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'K'</span><span class="p">],</span> <span class="n">rdf</span><span class="p">[</span><span class="s1">'Inertia'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">pol</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="n">pol</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rdf</span><span class="p">[</span><span class="s1">'K'</span><span class="p">],</span> <span class="n">rdf</span><span class="p">[</span><span class="s1">'Silhouette'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">pol</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="n">pol</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Elbow Method Tanpa PCA (68 Fitur)'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Inersia'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Polutan'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Silhouette Score Tanpa PCA (68 Fitur)'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Jumlah Cluster (K)'</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Silhouette Score'</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Polutan'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Bandingkan langsung dengan hasil PCA(n_components=37) pada bagian 2.1-2.3</span>
+<span class="k">for</span> <span class="n">pol</span> <span class="ow">in</span> <span class="n">POLUTAN</span><span class="p">:</span>
+    <span class="n">sil_nopca_k2</span> <span class="o">=</span> <span class="n">nopca_results</span><span class="p">[</span><span class="n">pol</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nopca_results</span><span class="p">[</span><span class="n">pol</span><span class="p">][</span><span class="s1">'K'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'Silhouette'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pol</span><span class="si">}</span><span class="s2">: Silhouette (tanpa PCA, K=2) = </span><span class="si">{</span><span class="n">sil_nopca_k2</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ecfedb6949d9c0e8dca401f7db02f80482b04648c60d707058f532cccca4f6e9.png" src="_images/ecfedb6949d9c0e8dca401f7db02f80482b04648c60d707058f532cccca4f6e9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NO2: Silhouette (tanpa PCA, K=2) = 0.745489
+CO: Silhouette (tanpa PCA, K=2) = 0.795494
+SO2: Silhouette (tanpa PCA, K=2) = 0.789366
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Struktur kode mengikuti prosedur <em>elbow</em> dan Silhouette Score pada 2.1-2.3, bedanya <code class="docutils literal notranslate"><span class="pre">fitur_scaled</span></code> langsung dipakai sebagai masukan K-Means tanpa PCA.</p></li>
+<li><p>Silhouette Score tanpa PCA identik hingga 6 angka desimal dengan <code class="docutils literal notranslate"><span class="pre">PCA(n_components=37)</span></code> (NO2 = 0,745489; CO = 0,795494; SO2 = 0,789366).</p></li>
+<li><p>Ini konsekuensi matematis, bukan kebetulan: dengan 37 sampel, PCA 37 komponen bersifat <em>full-rank</em> — hanya rotasi ruang fitur tanpa membuang informasi atau mengubah jarak antar titik, sehingga hasil K-Means dan Silhouette Score identik.</p></li>
+<li><p>Dengan demikian, <code class="docutils literal notranslate"><span class="pre">PCA(n_components=37)</span></code> secara matematis setara dengan memakai seluruh 68 fitur tanpa reduksi dimensi.</p></li>
+</ul>
+</section>
+<section id="kesimpulan-evaluasi-jumlah-cluster-sisi-python">
+<h3>2.6 Kesimpulan Evaluasi Jumlah Cluster (Sisi Python)<a class="headerlink" href="#kesimpulan-evaluasi-jumlah-cluster-sisi-python" title="Link to this heading">#</a></h3>
+<p>Ketiga pendekatan pada bagian 2.1-2.5 — PCA tetap 37 komponen, PCA dengan jumlah komponen disapu dari 1 sampai 37, dan tanpa PCA (68 fitur penuh) — menghasilkan kesimpulan yang konsisten, dirangkum sebagai berikut.</p>
+<p>Jumlah cluster terbaik berdasarkan Silhouette Score adalah K = 2 untuk ketiga polutan pada seluruh pendekatan yang diuji. Nilai Silhouette Score tertinggi pada representasi fitur penuh (68 fitur, setara PCA 37 komponen) berturut-turut adalah NO2 = 0,745, CO = 0,795, dan SO2 = 0,789; ketiganya tergolong tinggi, tetapi berdasarkan profil cluster pada bagian 3, nilai tersebut lebih mencerminkan keberadaan kecamatan dengan nilai fitur ekstrem (<em>outlier</em>) yang membentuk cluster tersendiri, bukan dua kelompok besar yang berimbang.</p>
+<p>Mengingat PCA 37 komponen terbukti setara dengan penggunaan seluruh 68 fitur (bagian 2.5), dan Silhouette Score pada jumlah komponen yang sangat kecil cenderung menyesatkan (bagian 2.4), penggunaan seluruh fitur atau PCA dengan jumlah komponen menengah — misalnya dua komponen untuk keperluan visualisasi <em>scatter plot</em> pada bagian 3 — lebih disarankan dibandingkan mengandalkan Silhouette Score pada komponen tunggal.</p>
+</section>
+</section>
+<section id="visualisasi-scatter-plot-pca-dan-profiling">
+<h2>3. Visualisasi Scatter Plot PCA dan Profiling<a class="headerlink" href="#visualisasi-scatter-plot-pca-dan-profiling" title="Link to this heading">#</a></h2>
+<section id="visualisasi-scatter-plot-pca-dan-profiling-pas-no2">
+<h3>3.1 Visualisasi Scatter Plot PCA dan Profiling pas NO2<a class="headerlink" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-no2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="c1"># 1. Memuat Data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_no2.csv'</span><span class="p">)</span>
+<span class="n">identitas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">]]</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2. Standardisasi &amp; PCA</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">))</span>
+
+<span class="c1"># 3. Menentukan K terbaik berdasarkan Silhouette Score (K = 2 s.d. 10)</span>
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">)[</span><span class="n">silhouette</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"K terbaik (NO2) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2"> (Silhouette Score = </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+<span class="c1"># 4. K-Means Final menggunakan K terbaik (bukan nilai tebakan/manual)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+
+<span class="n">df_hasil</span> <span class="o">=</span> <span class="n">identitas</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+
+<span class="c1"># 5. Visualisasi Scatter Plot (Sumbu X diganti ke 'nama')</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'nama'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s1">'tab10'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Scatter Plot Persebaran Nama per Cluster (NO2, K=</span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Nama'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 6. Menampilkan profil klaster berdasarkan nama (Top 3 per klaster)</span>
+<span class="n">profil_nama</span> <span class="o">=</span> <span class="n">df_hasil</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Jumlah'</span><span class="p">)</span>
+<span class="n">top_3_per_cluster</span> <span class="o">=</span> <span class="n">profil_nama</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'Jumlah'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_3_per_cluster</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K terbaik (NO2) berdasarkan Silhouette Score tertinggi: K = 2 (Silhouette Score = 0.7455)
+</pre></div>
+</div>
+<img alt="_images/da7fe2fd832efc3f022ea98d3c228406484aac6e2edd994f009213ba1e2838ff.png" src="_images/da7fe2fd832efc3f022ea98d3c228406484aac6e2edd994f009213ba1e2838ff.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Cluster                                 nama  Jumlah
+0         0  A.Choiril Anwar El-Asfihani Risydan       1
+1         0                  AHMAD MAULANA ISHAQ       1
+2         0            Ahmad Dafi Zidni Alfarisi       1
+36        1                          Dewi Geizya       1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>K optimal untuk NO2 ditentukan dengan prosedur sama seperti 2.1: data dipisah jadi <code class="docutils literal notranslate"><span class="pre">identitas</span></code> (id, nama, daerah) dan <code class="docutils literal notranslate"><span class="pre">fitur</span></code> (68 kolom), distandardisasi, direduksi ke 37 komponen PCA.</p></li>
+<li><p>Silhouette Score dihitung untuk K = 2 sampai 10; K dengan skor tertinggi dipilih sebagai <code class="docutils literal notranslate"><span class="pre">k_terbaik</span></code> (data-driven, bukan manual), lalu K-Means final dijalankan.</p></li>
+<li><p>Hasil divisualisasikan sebagai <em>scatter plot</em> (sumbu-x nama kecamatan, sumbu-y label cluster), dilengkapi tabel tiga anggota teratas tiap cluster.</p></li>
+</ul>
+</section>
+<section id="visualisasi-scatter-plot-pca-dan-profiling-pas-co">
+<h3>3.2 Visualisasi Scatter Plot PCA dan Profiling pas CO<a class="headerlink" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-co" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="c1"># 1. Memuat Data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_co.csv'</span><span class="p">)</span>
+<span class="n">identitas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">]]</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2. Standardisasi &amp; PCA</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">))</span>
+
+<span class="c1"># 3. Menentukan K terbaik berdasarkan Silhouette Score (K = 2 s.d. 10)</span>
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">)[</span><span class="n">silhouette</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"K terbaik (CO) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2"> (Silhouette Score = </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+<span class="c1"># 4. K-Means Final menggunakan K terbaik (bukan nilai tebakan/manual)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+
+<span class="n">df_hasil</span> <span class="o">=</span> <span class="n">identitas</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+
+<span class="c1"># 5. Visualisasi Scatter Plot (Sumbu X diganti ke 'nama')</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'nama'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s1">'tab10'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Scatter Plot Persebaran Nama per Cluster (CO, K=</span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Nama'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 6. Menampilkan profil klaster berdasarkan nama (Top 3 per klaster)</span>
+<span class="n">profil_nama</span> <span class="o">=</span> <span class="n">df_hasil</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Jumlah'</span><span class="p">)</span>
+<span class="n">top_3_per_cluster</span> <span class="o">=</span> <span class="n">profil_nama</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'Jumlah'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_3_per_cluster</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K terbaik (CO) berdasarkan Silhouette Score tertinggi: K = 2 (Silhouette Score = 0.7955)
+</pre></div>
+</div>
+<img alt="_images/7f66d40c6dd339745f5427ead28b11134b458aca5e6f727c505d2b329e50e303.png" src="_images/7f66d40c6dd339745f5427ead28b11134b458aca5e6f727c505d2b329e50e303.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Cluster                                  nama  Jumlah
+0         0  A. Choiril Anwar El-Asfihani Risydan       1
+1         0                   AHMAD MAULANA ISHAQ       1
+2         0             Ahmad Dafi Zidni Alfarisi       1
+36        1                           Dewi Geizya       1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Prosedur identik dengan subbab 3.1, hanya sumber data berbeda (<code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_co.csv</span></code>).</p></li>
+<li><p>K terbaik = 2 dengan Silhouette Score 0,795.</p></li>
+</ul>
+</section>
+<section id="visualisasi-scatter-plot-pca-dan-profiling-pas-so2">
+<h3>3.3 Visualisasi Scatter Plot PCA dan Profiling pas SO2<a class="headerlink" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-so2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="c1"># 1. Memuat Data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ekstraksi_fitur_so2.csv'</span><span class="p">)</span>
+<span class="n">identitas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">]]</span>
+<span class="n">fitur</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">,</span> <span class="s1">'daerah'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2. Standardisasi &amp; PCA</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">fitur_pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fitur</span><span class="p">))</span>
+
+<span class="c1"># 3. Menentukan K terbaik berdasarkan Silhouette Score (K = 2 s.d. 10)</span>
+<span class="n">K_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K_range</span><span class="p">:</span>
+    <span class="n">label_temp</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+    <span class="n">silhouette</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">,</span> <span class="n">label_temp</span><span class="p">))</span>
+
+<span class="n">k_terbaik</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">K_range</span><span class="p">)[</span><span class="n">silhouette</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"K terbaik (SO2) berdasarkan Silhouette Score tertinggi: K = </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2"> (Silhouette Score = </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">silhouette</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+<span class="c1"># 4. K-Means Final menggunakan K terbaik (bukan nilai tebakan/manual)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k_terbaik</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">fitur_pca</span><span class="p">)</span>
+
+<span class="n">df_hasil</span> <span class="o">=</span> <span class="n">identitas</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+
+<span class="c1"># 5. Visualisasi Scatter Plot (Sumbu X diganti ke 'nama')</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'nama'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">hue</span><span class="o">=</span><span class="n">df_hasil</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s1">'tab10'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Scatter Plot Persebaran Nama per Cluster (SO2, K=</span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Nama'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Cluster'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 6. Menampilkan profil klaster berdasarkan nama (Top 3 per klaster)</span>
+<span class="n">profil_nama</span> <span class="o">=</span> <span class="n">df_hasil</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'nama'</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Jumlah'</span><span class="p">)</span>
+<span class="n">top_3_per_cluster</span> <span class="o">=</span> <span class="n">profil_nama</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'Cluster'</span><span class="p">,</span> <span class="s1">'Jumlah'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Cluster'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_3_per_cluster</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>K terbaik (SO2) berdasarkan Silhouette Score tertinggi: K = 2 (Silhouette Score = 0.7894)
+</pre></div>
+</div>
+<img alt="_images/86a931267f15d3f1f71f34f3b2658eb4ba79ac5cbad85eaca2e1cc128e32a83a.png" src="_images/86a931267f15d3f1f71f34f3b2658eb4ba79ac5cbad85eaca2e1cc128e32a83a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Cluster                                  nama  Jumlah
+0         0  A. Choiril Anwar El-Asfihani Risydan       1
+1         0                   AHMAD MAULANA ISHAQ       1
+2         0             Ahmad Dafi Zidni Alfarisi       1
+36        1                           Dewi Geizya       1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Penjelasan kode di atas adalah sebagai berikut.</p>
+<ul class="simple">
+<li><p>Prosedur identik dengan subbab 3.1, hanya sumber data berbeda (<code class="docutils literal notranslate"><span class="pre">ekstraksi_fitur_so2.csv</span></code>).</p></li>
+<li><p>K terbaik = 2 dengan Silhouette Score 0,789.</p></li>
+</ul>
+</section>
+</section>
+<section id="implementasi-alur-kerja-workflow-clustering-knime">
+<h2>4. Implementasi Alur Kerja (Workflow) Clustering KNIME<a class="headerlink" href="#implementasi-alur-kerja-workflow-clustering-knime" title="Link to this heading">#</a></h2>
+<p><img alt="image" src="https://hackmd.io/_uploads/Hk-nh88qMg.png" /></p>
+<p>Diagram di atas menampilkan alur kerja (<em>workflow</em>) K-Means Clustering yang diimplementasikan pada KNIME. Fungsi setiap <em>node</em> adalah sebagai berikut.</p>
+</section>
+<section id="postgresql-connector">
+<h2>4.1  PostgreSQL Connector<a class="headerlink" href="#postgresql-connector" title="Link to this heading">#</a></h2>
+<p>PostgreSQL Connector menghubungkan KNIME dengan basis data <code class="docutils literal notranslate"><span class="pre">PSD-A</span></code> (Aiven) tempat data hasil ekstraksi fitur ketiga polutan disimpan.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/rJ6M1DI5zl.png" /></p>
+</div></blockquote>
+</section>
+<section id="db-table-selector">
+<h2>4.2 DB Table Selector<a class="headerlink" href="#db-table-selector" title="Link to this heading">#</a></h2>
+<p>DB Table Selector memilih tabel sumber data untuk masing-masing polutan; NO2, CO, dan SO2 diproses sebagai tiga cabang paralel yang terpisah. misalkan gambar di contoh memilih polutan CO.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/ryHhkPL5zx.png" /></p>
+</div></blockquote>
+</section>
+<section id="db-reader">
+<h2>4.3 DB Reader<a class="headerlink" href="#db-reader" title="Link to this heading">#</a></h2>
+<p>DB Reader membaca tabel yang dipilih ke dalam KNIME sebagai tabel data berisi 68 kolom fitur per kecamatan.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/BJwexwUcfl.png" /></p>
+</div></blockquote>
+<section id="pca">
+<h3>4.4 PCA<a class="headerlink" href="#pca" title="Link to this heading">#</a></h3>
+<p>PCA mereduksi dimensi 68 fitur menjadi beberapa komponen utama sebelum tahap <em>clustering</em>.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/SJkEewIqGg.png" /></p>
+</div></blockquote>
+</section>
+</section>
+<section id="k-means">
+<h2>4.5 k-Means<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
+<p>k-Means mengelompokkan kecamatan ke dalam <em>k</em> cluster berdasarkan komponen hasil PCA.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/ByV3lwU9Ge.png" /></p>
+</div></blockquote>
+</section>
+<section id="scatter-plot">
+<h2>4. 6 Scatter Plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h2>
+<p>Scatter Plot memvisualisasikan posisi tiap kecamatan pada bidang komponen PCA menurut label cluster.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/ryp0gDI9Ge.png" /></p>
+</div></blockquote>
+</section>
+<section id="silhouette-coefficient">
+<h2>4.7 Silhouette Coefficient<a class="headerlink" href="#silhouette-coefficient" title="Link to this heading">#</a></h2>
+<p>mengukur kualitas pemisahan cluster secara numerik, baik per cluster maupun secara keseluruhan.</p>
+<blockquote>
+<div><p><img alt="image" src="https://hackmd.io/_uploads/HykZbD8cfl.png" /></p>
+</div></blockquote>
+<p>Alur kerja di atas dijalankan secara independen untuk ketiga polutan (NO2, CO, dan SO2), sehingga proses PCA dan K-Means dilakukan terpisah pada masing-masing cabang. Hasil clustering ketiga polutan tersebut disajikan dan dibandingkan pada bagian 5.</p>
+</section>
+<section id="hasil-clustering-setiap-polutan-scatter-plot-silhouette-coefficient-knime">
+<h2>5. Hasil Clustering Setiap Polutan (Scatter Plot &amp; Silhouette Coefficient KNIME)<a class="headerlink" href="#hasil-clustering-setiap-polutan-scatter-plot-silhouette-coefficient-knime" title="Link to this heading">#</a></h2>
+<section id="polutan-no2-k-2">
+<h3>5.1 Polutan NO2 (K = 2)<a class="headerlink" href="#polutan-no2-k-2" title="Link to this heading">#</a></h3>
+<p><strong>Tanpa PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/rJxwP0L89Ml.png" /></p>
+<p><img alt="Scatter Plot no2" src="https://hackmd.io/_uploads/S1GVKIU9Mx.png" /></p>
+<p><strong>Dengan PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/SJ4hIIL5Mg.png" /></p>
+<p><img alt="Scatter Plot no2" src="https://hackmd.io/_uploads/S1GVKIU9Mx.png" /></p>
+<p>Hasil clustering KNIME untuk NO2 identik antara representasi tanpa PCA dan dengan PCA, dengan Silhouette Coefficient rata-rata (<em>overall</em>) sebesar 0,964. Cluster mayoritas mencakup hampir seluruh kecamatan dengan silhouette tinggi (0,991), sedangkan satu cluster lain hanya beranggotakan satu kecamatan (Dewi Geizya) dengan silhouette 0, yang mengindikasikan kecamatan tersebut merupakan <em>outlier</em> dari kelompok utama. Kesamaan hasil pada kedua representasi menunjukkan bahwa reduksi dimensi PCA tidak mengubah struktur cluster yang terbentuk untuk polutan NO2.</p>
+</section>
+<section id="polutan-co-k-2">
+<h3>5.2 Polutan CO (K = 2)<a class="headerlink" href="#polutan-co-k-2" title="Link to this heading">#</a></h3>
+<p><strong>Tanpa PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/SJRgAU8qzl.png" /></p>
+<p><img alt="Scatter Plot co" src="https://hackmd.io/_uploads/B1zVYL8cGl.png" /></p>
+<p><strong>Dengan PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/HkRcvU8qfe.png" /></p>
+<p><img alt="Scatter Plot co" src="https://hackmd.io/_uploads/B1zVYL8cGl.png" /></p>
+<p>Hasil clustering KNIME untuk CO juga identik antara representasi tanpa PCA dan dengan PCA, dengan Silhouette Coefficient rata-rata sebesar 0,973 — tertinggi di antara ketiga polutan. Cluster mayoritas memiliki silhouette sempurna (1,0), sedangkan cluster minoritas yang hanya beranggotakan satu kecamatan (Dewi Geizya) bersilhouette 0. Pola ini konsisten dengan NO2, yaitu adanya satu kecamatan dengan nilai fitur ekstrem yang terpisah dari kelompok utama, bukan dua kelompok besar yang terpisah secara merata.</p>
+</section>
+<section id="polutan-so2-k-2">
+<h3>5.3 Polutan SO2 (K = 2)<a class="headerlink" href="#polutan-so2-k-2" title="Link to this heading">#</a></h3>
+<p><strong>Tanpa PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/S15p0II9fe.png" /></p>
+<p><img alt="Scatter Plot so2" src="https://hackmd.io/_uploads/ByMVKUI9Me.png" /></p>
+<p><strong>Dengan PCA</strong>
+<img alt="image" src="https://hackmd.io/_uploads/H1AOY8Ucfl.png" /></p>
+<p><img alt="Scatter Plot so2" src="https://hackmd.io/_uploads/ByMVKUI9Me.png" /></p>
+<p>Hasil clustering KNIME untuk SO2 kembali identik antara representasi tanpa PCA dan dengan PCA, dengan Silhouette Coefficient rata-rata sebesar 0,969. Cluster mayoritas memiliki silhouette tinggi (0,996) dan mencakup hampir seluruh kecamatan, sedangkan cluster minoritas yang beranggotakan satu kecamatan (Dewi Geizya) bersilhouette 0. Pola ini sejalan dengan NO2 dan CO, memperkuat indikasi bahwa kecamatan tersebut merupakan <em>outlier</em> konsisten pada ketiga polutan.</p>
+</section>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<section id="kesimpulan-sisi-python-evaluasi-jumlah-cluster-bagian-2">
+<h3>Kesimpulan Sisi Python (Evaluasi Jumlah Cluster, bagian 2)<a class="headerlink" href="#kesimpulan-sisi-python-evaluasi-jumlah-cluster-bagian-2" title="Link to this heading">#</a></h3>
+<p>Jumlah cluster terbaik menurut Silhouette Score konsisten pada K = 2 untuk ketiga polutan, baik menggunakan PCA 37 komponen tetap, PCA dengan jumlah komponen disapu dari 1 sampai 37, maupun tanpa PCA sama sekali. Nilai Silhouette Score tertinggi pada representasi fitur penuh adalah NO2 = 0,745, CO = 0,795, dan SO2 = 0,789. Ketiga nilai tergolong tinggi, namun berdasarkan profil cluster pada bagian 3, hal ini lebih mencerminkan keberadaan kecamatan dengan nilai fitur ekstrem yang membentuk cluster tersendiri, bukan dua kelompok besar yang terpisah secara merata.</p>
+</section>
+<section id="kesimpulan-sisi-knime-bagian-4-5">
+<h3>Kesimpulan Sisi KNIME (bagian 4-5)<a class="headerlink" href="#kesimpulan-sisi-knime-bagian-4-5" title="Link to this heading">#</a></h3>
+<p>Ketiga polutan menunjukkan pola yang konsisten: pada K = 2, satu cluster mayoritas menampung hampir seluruh kecamatan dengan silhouette mendekati sempurna, sedangkan satu kecamatan (Dewi Geizya) selalu terpisah sendiri sebagai cluster minoritas bersilhouette 0. Pola ini terulang identik baik pada representasi tanpa PCA maupun dengan PCA, menunjukkan bahwa reduksi dimensi tidak mengubah hasil pengelompokan pada implementasi KNIME. Silhouette Coefficient rata-rata tertinggi diperoleh pada CO (0,973), diikuti SO2 (0,969), dan NO2 (0,964); perbedaan di antara ketiganya sangat tipis, sehingga kualitas pemisahan cluster tergolong seragam tinggi untuk ketiga polutan.</p>
+</section>
+<section id="sintesis-python-dan-knime">
+<h3>Sintesis Python dan KNIME<a class="headerlink" href="#sintesis-python-dan-knime" title="Link to this heading">#</a></h3>
+<p>Kedua pendekatan menghasilkan kesimpulan yang sejalan: hasil <em>clustering</em>, baik pada Python maupun KNIME, lebih banyak mencerminkan keberadaan kecamatan dengan nilai fitur ekstrem (<em>outlier</em>) dibandingkan segmentasi pola polusi yang merata antar kecamatan. Pada KNIME, indikasi ini lebih tegas karena kecamatan yang sama (Dewi Geizya) konsisten terpisah sebagai cluster tunggal pada ketiga polutan, baik dengan maupun tanpa PCA. Perbedaan nilai Silhouette Score antara Python dan KNIME lebih disebabkan oleh perbedaan representasi fitur dan urutan proses pada kedua alat, bukan perbedaan kesimpulan substantif mengenai struktur data.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Ekstraksi%20Fitur%20TSFEL%20dan%20Perhitungan%20Manual%20pada%20Data%20Polutan%20Udara.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ekstraksi Fitur TSFEL dan Perhitungan Manual pada Data Polutan Udara</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-dan-mengunggah-data-ke-database">1. Menggabungkan dan Mengunggah Data ke Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-elbow-method-dan-silhouette-score">2. Evaluasi Jumlah Cluster (Elbow Method dan Silhouette Score)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-no2">2.1 Evaluasi Jumlah Cluster pada NO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-co">2.2 Evaluasi Jumlah Cluster pada CO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-jumlah-cluster-pada-so2">2.3 Evaluasi Jumlah Cluster pada SO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-reduksi-pca-dari-1-sampai-37-komponen">2.4 Evaluasi Reduksi PCA dari 1 sampai 37 Komponen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-tanpa-pca-memakai-seluruh-68-fitur">2.5 Evaluasi Tanpa PCA (Memakai Seluruh 68 Fitur)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-evaluasi-jumlah-cluster-sisi-python">2.6 Kesimpulan Evaluasi Jumlah Cluster (Sisi Python)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling">3. Visualisasi Scatter Plot PCA dan Profiling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-no2">3.1 Visualisasi Scatter Plot PCA dan Profiling pas NO2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-co">3.2 Visualisasi Scatter Plot PCA dan Profiling pas CO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-scatter-plot-pca-dan-profiling-pas-so2">3.3 Visualisasi Scatter Plot PCA dan Profiling pas SO2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-alur-kerja-workflow-clustering-knime">4. Implementasi Alur Kerja (Workflow) Clustering KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-connector">4.1  PostgreSQL Connector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#db-table-selector">4.2 DB Table Selector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#db-reader">4.3 DB Reader</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">4.4 PCA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">4.5 k-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">4. 6 Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silhouette-coefficient">4.7 Silhouette Coefficient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering-setiap-polutan-scatter-plot-silhouette-coefficient-knime">5. Hasil Clustering Setiap Polutan (Scatter Plot &amp; Silhouette Coefficient KNIME)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-no2-k-2">5.1 Polutan NO2 (K = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-co-k-2">5.2 Polutan CO (K = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-so2-k-2">5.3 Polutan SO2 (K = 2)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-sisi-python-evaluasi-jumlah-cluster-bagian-2">Kesimpulan Sisi Python (Evaluasi Jumlah Cluster, bagian 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-sisi-knime-bagian-4-5">Kesimpulan Sisi KNIME (bagian 4-5)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-python-dan-knime">Sintesis Python dan KNIME</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rian Renaldy (240411100053)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
