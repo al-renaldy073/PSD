@@ -516,17 +516,124 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">userdata</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Konfigurasi kredensial dan koneksi database</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">AIVEN_USER</span>     <span class="o">=</span> <span class="n">userdata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"AIVEN_USER"</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berhasil! 37 baris dari 'ekstraksi_fitur_co.csv' ter-upload ke tabel 'fitur_co'.
+Berhasil! 37 baris dari 'ekstraksi_fitur_no2.csv' ter-upload ke tabel 'fitur_no2'.
+Berhasil! 37 baris dari 'ekstraksi_fitur_so2.csv' ter-upload ke tabel 'fitur_so2'.
 
-<span class="ne">ModuleNotFoundError</span>: No module named 'google'
+--- Preview Tabel fitur_co ---
+   id                             nama           daerah  abs_energy  \
+0   3                Nurhabibatul Umah     Kerek, Tuban    0.325552   
+1   4  Verdi Setyawan Ardiansyah Putra  Menganti Gresik    0.311946   
+2   5          Okan Syailendra wahyudi   Manyar, Gresik    0.306332   
+3   6          Mochammad Zaenal Abidin    Widang, Tuban    0.320845   
+4   7              M. Hendrik Purwanto  Sreseh, Sampang    0.300128   
+
+         auc  autocorr  average_power  calc_centroid  calc_max  calc_mean  \
+0  10.822536         3       0.000892     185.172183  0.038546   0.029654   
+1  10.599365         3       0.000855     183.614501  0.036701   0.029041   
+2  10.489406         3       0.000842     180.902553  0.036488   0.028827   
+3  10.744960         3       0.000879     184.819043  0.037897   0.029439   
+4  10.334234         4       0.000831     178.342624  0.038664   0.028630   
+
+   ...  spectral_spread  spectral_variation  spectrogram_mean_coeff  \
+0  ...         0.130288            0.554103                0.000015   
+1  ...         0.135135            0.592456                0.000015   
+2  ...         0.127778            0.661400                0.000014   
+3  ...         0.129537            0.474190                0.000013   
+4  ...         0.130322            0.684887                0.000017   
+
+   sum_abs_diff  wavelet_abs_mean  wavelet_energy  wavelet_entropy  \
+0      0.704421          0.001815        0.008006         2.144113   
+1      0.709078          0.001715        0.007520         2.139121   
+2      0.623414          0.001676        0.007558         2.126252   
+3      0.698436          0.001767        0.007519         2.147071   
+4      0.611650          0.001698        0.007830         2.098579   
+
+   wavelet_std  wavelet_var  zero_cross  
+0     0.007772     0.000069           0  
+1     0.007297     0.000060           0  
+2     0.007348     0.000061           0  
+3     0.007280     0.000060           0  
+4     0.007624     0.000068           0  
+
+[5 rows x 71 columns]
+
+--- Preview Tabel fitur_no2 ---
+   id                      nama                daerah    abs_energy       auc  \
+0   7   Okan Syailendra wahyudi                Manyar  1.933040e-06  0.023990   
+1  10  Triswanti Jannatul Ma'wa  Kedungpring Lamongan  3.702058e-07  0.010905   
+2  12           Laila Maghfiroh      Kamal, Bangkalan  7.363589e-07  0.015059   
+3  13              Dedy Nurohim      sambeng lamongan  3.854020e-07  0.011228   
+4  14     Ahmad Syahrul Farihin   Gresik Kota, Gresik  1.523980e-06  0.022417   
+
+   autocorr  average_power  calc_centroid  calc_max  calc_mean  ...  \
+0         7   5.310551e-09     186.075084  0.000168   0.000066  ...   
+1         8   1.014262e-09     194.285209  0.000059   0.000030  ...   
+2        11   2.017422e-09     166.039562  0.000086   0.000041  ...   
+3         6   1.055896e-09     196.838820  0.000062   0.000031  ...   
+4         3   4.175288e-09     184.039735  0.000124   0.000061  ...   
+
+   spectral_spread  spectral_variation  spectrogram_mean_coeff  sum_abs_diff  \
+0         0.147818            0.336845            1.288098e-09      0.005077   
+1         0.147428            0.319585            1.366945e-10      0.001801   
+2         0.144113            0.282633            4.347435e-10      0.002744   
+3         0.156054            0.275151            1.258376e-10      0.002168   
+4         0.154967            0.685525            7.180607e-10      0.004380   
+
+   wavelet_abs_mean  wavelet_energy  wavelet_entropy  wavelet_std  \
+0          0.000004        0.000043         2.147398     0.000043   
+1          0.000002        0.000016         2.123802     0.000016   
+2          0.000001        0.000023         2.131037     0.000023   
+3          0.000002        0.000013         2.154113     0.000013   
+4          0.000003        0.000031         2.145496     0.000031   
+
+    wavelet_var  zero_cross  
+0  1.940374e-09           0  
+1  2.814972e-10           0  
+2  6.029032e-10           2  
+3  1.879498e-10           0  
+4  1.040073e-09           0  
+
+[5 rows x 71 columns]
+
+--- Preview Tabel fitur_so2 ---
+   id                             nama           daerah  abs_energy       auc  \
+0   2                Nurhabibatul Umah     Kerek, Tuban    0.000005  0.028719   
+1   3  Verdi Setyawan Ardiansyah Putra  Menganti Gresik    0.000011  0.042161   
+2   4          Okan Syailendra wahyudi   Manyar, Gresik    0.000025  0.063998   
+3   5          Mochammad Zaenal Abidin    Widang, Tuban    0.000004  0.026307   
+4   6              M. Hendrik Purwanto  Sreseh, Sampang    0.000003  0.022927   
+
+   autocorr  average_power  calc_centroid  calc_max  calc_mean  ...  \
+0         2   1.263833e-08     209.877355  0.000309   0.000033  ...   
+1         2   2.989639e-08     172.148705  0.000461   0.000087  ...   
+2         1   6.807531e-08     204.258058  0.000793   0.000111  ...   
+3         2   1.053692e-08     186.794715  0.000274   0.000026  ...   
+4         2   9.373189e-09     210.032798  0.000293   0.000021  ...   
+
+   spectral_spread  spectral_variation  spectrogram_mean_coeff  sum_abs_diff  \
+0         0.148927            0.209776            1.899262e-08      0.027288   
+1         0.154508            0.292423            4.194986e-08      0.038801   
+2         0.153556            0.278411            9.647455e-08      0.064800   
+3         0.147246            0.172626            1.702950e-08      0.025822   
+4         0.147471            0.220521            1.625267e-08      0.026505   
+
+   wavelet_abs_mean  wavelet_energy  wavelet_entropy  wavelet_std  \
+0      8.060801e-07        0.000153         2.160229     0.000153   
+1      6.563252e-06        0.000204         2.157516     0.000204   
+2      6.723475e-06        0.000310         2.168640     0.000310   
+3      3.133062e-06        0.000142         2.153694     0.000142   
+4      1.106266e-06        0.000132         2.167505     0.000132   
+
+    wavelet_var  zero_cross  
+0  2.464593e-08          93  
+1  4.519175e-08         100  
+2  1.002558e-07          98  
+3  2.183313e-08         107  
+4  1.856150e-08         108  
+
+[5 rows x 71 columns]
+
 </pre></div>
 </div>
 </div>
