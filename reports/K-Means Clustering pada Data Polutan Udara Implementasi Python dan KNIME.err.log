@@ -28,50 +28,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
-from sqlalchemy import create_engine
 from google.colab import userdata
+from sqlalchemy.engine import URL
 
-# Konfigurasi kredensial dan koneksi database
-AIVEN_USER     = userdata.get("AIVEN_USER")
+AIVEN_HOST = userdata.get("AIVEN_HOST")
+AIVEN_PORT = int(userdata.get("AIVEN_PORT"))
+AIVEN_DB = userdata.get("AIVEN_DB")
+AIVEN_USER = userdata.get("AIVEN_USER")
 AIVEN_PASSWORD = userdata.get("AIVEN_PASSWORD")
-AIVEN_HOST     = userdata.get("AIVEN_HOST")
-AIVEN_PORT     = userdata.get("AIVEN_PORT")
-AIVEN_DB       = userdata.get("AIVEN_DB")
 
-db_url = f"postgresql+psycopg2://{AIVEN_USER}:{AIVEN_PASSWORD}@{AIVEN_HOST}:{AIVEN_PORT}/{AIVEN_DB}?sslmode=require"
+# URL.create meng-encode karakter khusus pada password (mis. '#', '@') secara otomatis
+db_url = URL.create(
+    drivername="mysql+pymysql",
+    username=AIVEN_USER,
+    password=AIVEN_PASSWORD,
+    host=AIVEN_HOST,
+    port=AIVEN_PORT,
+    database=AIVEN_DB,
+)
+
 engine = create_engine(db_url)
 
-# Pemetaan nama file CSV dan nama tabel tujuan
-files_and_tables = {
-    "ekstraksi_fitur_co.csv": "fitur_co",
-    "ekstraksi_fitur_no2.csv": "fitur_no2",
-    "ekstraksi_fitur_so2.csv": "fitur_so2"
-}
-
-# Process upload secara berurutan
-for file_path, table_name in files_and_tables.items():
-    df = pd.read_csv(file_path)
-    df.to_sql(table_name, engine, if_exists="replace", index=False)
-    print(f"Berhasil! {len(df)} baris dari '{file_path}' ter-upload ke tabel '{table_name}'.")
-
-# Cek preview 5 baris pertama dari tiap tabel
-with engine.connect() as conn:
-    for table_name in files_and_tables.values():
-        print(f"\n--- Preview Tabel {table_name} ---")
-        print(pd.read_sql(f'SELECT * FROM "{table_name}" LIMIT 5', conn))
+print("Koneksi Aiven siap digunakan.")
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 3[39m
-[32m      1[39m [38;5;28;01mimport[39;00m pandas [38;5;28;01mas[39;00m pd
-[32m      2[39m [38;5;28;01mfrom[39;00m sqlalchemy [38;5;28;01mimport[39;00m create_engine
-[32m----> [39m[32m3[39m [38;5;28;01mfrom[39;00m google.colab [38;5;28;01mimport[39;00m userdata
-[32m      4[39m 
-[32m      5[39m [38;5;66;03m# Konfigurasi kredensial dan koneksi database[39;00m
-[32m      6[39m AIVEN_USER     = userdata.get([33m"AIVEN_USER"[39m)
+[36mCell[39m[36m [39m[32mIn[3][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mfrom[39;00m google.colab [38;5;28;01mimport[39;00m userdata
+[32m      2[39m [38;5;28;01mfrom[39;00m sqlalchemy.engine [38;5;28;01mimport[39;00m URL
+[32m      3[39m 
+[32m      4[39m AIVEN_HOST = userdata.get([33m"AIVEN_HOST"[39m)
 
 [31mModuleNotFoundError[39m: No module named 'google'
 
