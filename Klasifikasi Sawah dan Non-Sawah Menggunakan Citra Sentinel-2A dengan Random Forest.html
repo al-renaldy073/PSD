@@ -536,19 +536,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">for</span> <span class="n">berkas</span> <span class="ow">in</span> <span class="p">(</span><span class="n">ZIP_SAWAH</span><span class="p">,</span> <span class="n">ZIP_NONSAWAH</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">berkas</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">berkas</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> tidak ditemukan di </span><span class="si">{</span><span class="n">BASE_DIR</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> 
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">for</span> <span class="n">berkas</span><span class="p">,</span> <span class="n">folder</span> <span class="ow">in</span> <span class="p">((</span><span class="n">ZIP_SAWAH</span><span class="p">,</span> <span class="s2">"datasawah50"</span><span class="p">),</span> <span class="p">(</span><span class="n">ZIP_NONSAWAH</span><span class="p">,</span> <span class="s2">"nonsawah"</span><span class="p">)):</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">berkas</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span>: sawah.zip tidak ditemukan di /workspaces/PSD/PSD
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ekstraksi_fitur_linear (linear): ukuran data = (37, 207), jumlah nama ganda = 0
+ekstraksi_fitur_polynomial (polynomial): ukuran data = (37, 207), jumlah nama ganda = 0
 </pre></div>
 </div>
 </div>
